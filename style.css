@@ -1,3 +1,264 @@
-h1{
-    background-color: green;
+/* R3: box-sizing e unidades relativas (rem, %) em vez de pixels fixos */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #1a1a1a;
+  background-color: #f4f6f8;
+}
+
+/* R4: largura máxima + centralização, o conteúdo se ajusta à tela */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* A2: link de pular conteúdo, escondido até receber foco pelo teclado */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 10;
+  padding: 0.75rem 1rem;
+  background-color: #ffd54f;
+  color: #000000;
+  font-weight: bold;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* A5: foco visível para navegação por teclado */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+.tabela-wrapper:focus,
+main:focus {
+  outline: 3px solid #ffb300;
+  outline-offset: 2px;
+}
+
+a {
+  color: #0b3d6b;
+}
+
+/* ---------- Cabeçalho ---------- */
+.topo {
+  background-color: #0b3d6b;
+  color: #ffffff;
+}
+
+.topo-conteudo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.logo {
+  flex-shrink: 0;
+}
+
+.nome {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.lema {
+  margin: 0;
+}
+
+/* ---------- Menu ---------- */
+.menu {
+  background-color: #082b4c;
+}
+
+.menu-lista {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.menu-lista a {
+  display: block;
+  min-height: 44px; /* A6: área de toque confortável */
+  padding: 0.75rem 1rem;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.menu-lista a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Destaque ---------- */
+.hero {
+  padding: 3rem 0;
+  background-color: #0b3d6b;
+  color: #ffffff;
+}
+
+.hero h1 {
+  margin-top: 0;
+  font-size: 2.25rem;
+}
+
+.botao-destaque {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #ffd54f;
+  color: #000000;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 0.25rem;
+}
+
+/* ---------- Seções e cards ---------- */
+.secao {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.secao h2 {
+  color: #0b3d6b;
+  border-bottom: 3px solid #ffd54f;
+  padding-bottom: 0.25rem;
+}
+
+/* R5: grade que se reorganiza sozinha conforme a largura disponível */
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  padding: 1rem;
+  background-color: #ffffff;
+  border: 1px solid #d0d7de;
+  border-radius: 0.5rem;
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 0.5rem;
+  border-radius: 50%;
+  background-color: #0b3d6b;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* ---------- Tabela ---------- */
+.tabela-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 32rem;
+  border-collapse: collapse;
+  background-color: #ffffff;
+}
+
+caption {
+  padding: 0.5rem;
+  text-align: left;
+  font-weight: bold;
+}
+
+th {
+  padding: 0.75rem;
+  background-color: #0b3d6b;
+  color: #ffffff;
+  text-align: left;
+}
+
+td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #d0d7de;
+}
+
+/* ---------- Formulário ---------- */
+.formulario {
+  max-width: 600px;
+}
+
+.formulario label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.formulario input,
+.formulario textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border: 2px solid #5a6b7b;
+  border-radius: 0.25rem;
+  font: inherit;
+}
+
+.formulario button {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: #0b3d6b;
+  color: #ffffff;
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ---------- Rodapé ---------- */
+.rodape {
+  padding: 1.5rem 0;
+  background-color: #082b4c;
+  color: #ffffff;
+}
+
+.rodape a {
+  color: #ffd54f;
+}
+
+address {
+  font-style: normal;
+}
+
+/* R6: media query, ajustes para telas de até 600px (celulares) */
+@media (max-width: 600px) {
+  .topo-conteudo {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .menu-lista {
+    flex-direction: column;
+  }
+
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .nome {
+    font-size: 1.25rem;
+  }
 }

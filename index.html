@@ -1,13 +1,175 @@
 <!DOCTYPE html>
+<!-- A1: idioma da página declarado para leitores de tela -->
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Câmara dos Vereadores</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <!-- R1: meta viewport para adaptar a página à largura do dispositivo -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Site da Câmara Municipal de Vila Nova: notícias, vereadores, sessões e contato.">
+  <title>Câmara Municipal de Vila Nova</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Hello world</h1>
-    <script src="script.js"></script>
+
+  <!-- A2: link "pular para o conteúdo" para quem navega pelo teclado -->
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+
+  <!-- A3: tags semânticas (header, nav, main, section, article, footer) -->
+  <header class="topo">
+    <div class="container topo-conteudo">
+      <svg class="logo" role="img" aria-label="Brasão da Câmara Municipal de Vila Nova" viewBox="0 0 64 64" width="64" height="64">
+        <circle cx="32" cy="32" r="30" fill="#ffd54f"/>
+        <polygon points="32,12 52,26 12,26" fill="#0b3d6b"/>
+        <rect x="16" y="28" width="6" height="18" fill="#0b3d6b"/>
+        <rect x="29" y="28" width="6" height="18" fill="#0b3d6b"/>
+        <rect x="42" y="28" width="6" height="18" fill="#0b3d6b"/>
+        <rect x="12" y="48" width="40" height="5" fill="#0b3d6b"/>
+      </svg>
+      <div>
+        <p class="nome">Câmara Municipal de Vila Nova</p>
+        <p class="lema">Casa do Povo</p>
+      </div>
+    </div>
+
+    <nav class="menu" aria-label="Menu principal">
+      <ul class="container menu-lista">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#noticias">Notícias</a></li>
+        <li><a href="#vereadores">Vereadores</a></li>
+        <li><a href="#sessoes">Sessões</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="conteudo" tabindex="-1">
+
+    <section id="inicio" class="hero" aria-labelledby="titulo-inicio">
+      <div class="container">
+        <h1 id="titulo-inicio">Bem-vindo à Câmara Municipal de Vila Nova</h1>
+        <p>Acompanhe as sessões, conheça os vereadores e participe das decisões da nossa cidade.</p>
+        <a class="botao-destaque" href="#sessoes">Ver próximas sessões</a>
+      </div>
+    </section>
+
+    <section id="noticias" class="secao container" aria-labelledby="titulo-noticias">
+      <h2 id="titulo-noticias">Últimas notícias</h2>
+      <div class="grade">
+        <article class="card">
+          <h3>Câmara aprova orçamento de 2027</h3>
+          <p><time datetime="2026-09-15">15 de setembro de 2026</time></p>
+          <p>Os vereadores aprovaram, em votação, a proposta orçamentária para o próximo ano.</p>
+          <a href="#noticias">Ler mais sobre o orçamento de 2027</a>
+        </article>
+        <article class="card">
+          <h3>Audiência pública sobre transporte</h3>
+          <p><time datetime="2026-09-10">10 de setembro de 2026</time></p>
+          <p>A população foi convidada a opinar sobre as linhas de ônibus do município.</p>
+          <a href="#noticias">Ler mais sobre a audiência pública</a>
+        </article>
+        <article class="card">
+          <h3>Projeto de lei incentiva a reciclagem</h3>
+          <p><time datetime="2026-09-03">3 de setembro de 2026</time></p>
+          <p>Nova proposta prevê pontos de coleta seletiva em todos os bairros.</p>
+          <a href="#noticias">Ler mais sobre a reciclagem</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="vereadores" class="secao container" aria-labelledby="titulo-vereadores">
+      <h2 id="titulo-vereadores">Vereadores</h2>
+      <div class="grade">
+        <article class="card">
+          <div class="avatar" aria-hidden="true">MS</div>
+          <h3>Maria Souza</h3>
+          <p>Presidente da Câmara</p>
+        </article>
+        <article class="card">
+          <div class="avatar" aria-hidden="true">JL</div>
+          <h3>João Lima</h3>
+          <p>Vice-presidente</p>
+        </article>
+        <article class="card">
+          <div class="avatar" aria-hidden="true">AF</div>
+          <h3>Ana Ferreira</h3>
+          <p>Primeira secretária</p>
+        </article>
+        <article class="card">
+          <div class="avatar" aria-hidden="true">CR</div>
+          <h3>Carlos Rocha</h3>
+          <p>Vereador</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="sessoes" class="secao container" aria-labelledby="titulo-sessoes">
+      <h2 id="titulo-sessoes">Calendário de sessões</h2>
+      <!-- R2: tabela com rolagem lateral em telas pequenas -->
+      <div class="tabela-wrapper" role="region" aria-label="Tabela de sessões, com rolagem lateral em telas pequenas" tabindex="0">
+        <table>
+          <caption>Próximas sessões ordinárias</caption>
+          <thead>
+            <tr>
+              <th scope="col">Data</th>
+              <th scope="col">Horário</th>
+              <th scope="col">Tipo</th>
+              <th scope="col">Pauta</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>28/09/2026</td>
+              <td>09h</td>
+              <td>Ordinária</td>
+              <td>Projeto de lei da reciclagem</td>
+            </tr>
+            <tr>
+              <td>05/10/2026</td>
+              <td>09h</td>
+              <td>Ordinária</td>
+              <td>Reforma da praça central</td>
+            </tr>
+            <tr>
+              <td>12/10/2026</td>
+              <td>14h</td>
+              <td>Solene</td>
+              <td>Entrega de títulos de cidadão</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="contato" class="secao container" aria-labelledby="titulo-contato">
+      <h2 id="titulo-contato">Fale com a Câmara</h2>
+      <!-- A4: cada campo tem um label associado pelo for/id -->
+      <form action="#" method="post" class="formulario">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" autocomplete="name" required>
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" autocomplete="email" required>
+
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+
+        <button type="submit">Enviar mensagem</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <address>
+        Câmara Municipal de Vila Nova<br>
+        Rua Principal, 100 – Centro<br>
+        Funcionamento: segunda a sexta, das 8h às 14h
+      </address>
+      <p><a href="#inicio">Voltar ao topo</a></p>
+      <p>&copy; 2026 Câmara Municipal de Vila Nova. Trabalho acadêmico de Programação Web.</p>
+    </div>
+  </footer>
+
 </body>
 </html>
