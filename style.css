@@ -47,12 +47,12 @@ main:focus {
 }
 
 a {
-  color: #0b3d6b;
+  color: green;
 }
 
 /* ---------- Cabeçalho ---------- */
 .topo {
-  background-color: #0b3d6b;
+  background-color: green;
   color: #ffffff;
 }
 
@@ -80,7 +80,7 @@ a {
 
 /* ---------- Menu ---------- */
 .menu {
-  background-color: #082b4c;
+  background-color: green;
 }
 
 .menu-lista {
@@ -104,7 +104,7 @@ a {
 /* ---------- Destaque ---------- */
 .hero {
   padding: 3rem 0;
-  background-color: #0b3d6b;
+  background-color: green;
   color: #ffffff;
 }
 
@@ -130,7 +130,7 @@ a {
 }
 
 .secao h2 {
-  color: #0b3d6b;
+  color: green;
   border-bottom: 3px solid #ffd54f;
   padding-bottom: 0.25rem;
 }
@@ -161,7 +161,7 @@ a {
   height: 4rem;
   margin-bottom: 0.5rem;
   border-radius: 50%;
-  background-color: #0b3d6b;
+  background-color: green;
   color: #ffffff;
   font-weight: bold;
 }
@@ -186,7 +186,7 @@ caption {
 
 th {
   padding: 0.75rem;
-  background-color: #0b3d6b;
+  background-color: green;
   color: #ffffff;
   text-align: left;
 }
@@ -221,7 +221,7 @@ td {
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 0.25rem;
-  background-color: #0b3d6b;
+  background-color: green;
   color: #ffffff;
   font: inherit;
   font-weight: bold;
@@ -231,7 +231,7 @@ td {
 /* ---------- Rodapé ---------- */
 .rodape {
   padding: 1.5rem 0;
-  background-color: #082b4c;
+  background-color: green;
   color: #ffffff;
 }
 
