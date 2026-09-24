@@ -227,6 +227,9 @@ td {
   font-weight: bold;
   cursor: pointer;
 }
+.avatar-img{
+  width: 100%;
+}
 
 /* ---------- Rodapé ---------- */
 .rodape {
