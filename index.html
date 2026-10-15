@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portal Oficial da Câmara Municipal de Buriti Grande: acompanhe notícias, conheça os vereadores, consulte sessões e fale conosco.">
+    <title>Câmara Municipal de Buriti Grande</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+
+    <header class="topo">
+      <div class="container topo-conteudo">
+        <div class="marca">
+          <div class="marca-texto">
+            <p class="nome">Câmara Municipal de Buriti Grande</p>
+            <p class="lema">Casa do Povo &ndash; Legislando com Transparência</p>
+          </div>
+        </div>
+
+        <form class="busca-form" role="search" action="#conteudo" method="get">
+          <label for="campo-busca" class="sr-only">Pesquisar no portal da Câmara</label>
+          <div class="busca-campo">
+            <input type="search" id="campo-busca" name="q" placeholder="Buscar no portal..." autocomplete="off">
+            <button type="submit" class="botao-busca" aria-label="Executar pesquisa">
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <nav class="menu" aria-label="Menu principal de navegação">
+        <ul class="container menu-lista">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#noticias">Notícias</a></li>
+          <li><a href="#vereadores">Vereadores</a></li>
+          <li><a href="#sessoes">Sessões</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="conteudo" tabindex="-1">
+      <section id="inicio" class="hero" aria-labelledby="titulo-inicio">
+        <div class="container hero-container">
+          <div class="hero-texto">
+            <span class="hero-emblema">Portal Legislativo Oficial</span>
+            <h1 id="titulo-inicio">Bem-vindo à Câmara Municipal de Buriti Grande</h1>
+            <p>
+              Acompanhe as sessões plenárias, conheça os vereadores eleitos e participe ativamente
+              das decisões que constroem o futuro da nossa cidade.
+            </p>
+            <div class="hero-acoes">
+              <a class="botao-destaque" href="#sessoes">Ver próximas sessões</a>
+              <a class="botao-secundario" href="#noticias">Últimas notícias</a>
+            </div>
+          </div>
+
+          <figure class="hero-figura">
+            <img src="img/hero.jpg" alt="Vista panorâmica da cidade de Buriti Grande com suas ruas e praça central" class="hero-img">
+            <figcaption class="hero-legenda">Buriti Grande &ndash; Vista panorâmica do município</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="noticias" class="secao container" aria-labelledby="titulo-noticias">
+        <div class="secao-cabecalho">
+          <h2 id="titulo-noticias">Últimas notícias</h2>
+          <p class="secao-subtitulo">Fique por dentro das principais votações, audiências e projetos aprovados.</p>
+        </div>
+
+        <div class="grade">
+          <article class="card card-noticia">
+            <figure class="noticia-figura">
+              <img src="img/noticia-orcamento.jpg" alt="Plenário da Câmara Municipal durante a votação do orçamento municipal" class="noticia-img">
+            </figure>
+            <div class="card-corpo">
+              <p class="noticia-data"><time datetime="2026-09-15">15 de setembro de 2026</time></p>
+              <h3>Câmara aprova orçamento de 2027</h3>
+              <p>Os vereadores aprovaram, em votação plenária, a proposta orçamentária para o próximo ano com foco em saúde e infraestrutura.</p>
+              <a class="link-noticia" href="#noticias" aria-label="Ler mais sobre a aprovação do orçamento de 2027">
+                Ler notícia completa <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="card card-noticia">
+            <figure class="noticia-figura">
+              <img src="img/noticia-transporte.jpg" alt="Audiência pública com cidadãos discutindo melhorias no transporte coletivo" class="noticia-img">
+            </figure>
+            <div class="card-corpo">
+              <p class="noticia-data"><time datetime="2026-09-10">10 de setembro de 2026</time></p>
+              <h3>Audiência pública sobre transporte</h3>
+              <p>A população compareceu para debater melhorias nas linhas de ônibus, novos itinerários e tarifas municipais.</p>
+              <a class="link-noticia" href="#noticias" aria-label="Ler mais sobre a audiência pública do transporte coletivo">
+                Ler notícia completa <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="card card-noticia">
+            <figure class="noticia-figura">
+              <img src="img/noticia-reciclagem.jpg" alt="Projeto de preservação ambiental com recipientes de coleta seletiva e reciclagem" class="noticia-img">
+            </figure>
+            <div class="card-corpo">
+              <p class="noticia-data"><time datetime="2026-09-03">3 de setembro de 2026</time></p>
+              <h3>Projeto de lei incentiva a reciclagem</h3>
+              <p>Nova proposta legislativa prevê a ampliação de pontos de coleta seletiva e incentivos fiscais para cooperativas locais.</p>
+              <a class="link-noticia" href="#noticias" aria-label="Ler mais sobre o projeto de lei de reciclagem">
+                Ler notícia completa <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="vereadores" class="secao container" aria-labelledby="titulo-vereadores">
+        <div class="secao-cabecalho">
+          <h2 id="titulo-vereadores">Vereadores</h2>
+          <p class="secao-subtitulo">Conheça os parlamentares que representam os interesses dos cidadãos de Buriti Grande.</p>
+        </div>
+
+        <div class="grade">
+          <article class="card card-vereador">
+            <div class="foto-moldura">
+              <img src="img/Guylherme.png" alt="Foto do vereador Guylherme Santos Lima" class="avatar-img">
+            </div>
+            <h3>Guylherme Santos Lima</h3>
+            <p class="cargo-vereador">Presidente da Câmara</p>
+            <p class="mandato-vereador">Mandato: 2025 &ndash; 2028</p>
+          </article>
+
+          <article class="card card-vereador">
+            <div class="foto-moldura">
+              <img src="img/Domingos.png" alt="Foto do vereador Domingos de Melo" class="avatar-img">
+            </div>
+            <h3>Domingos de Melo</h3>
+            <p class="cargo-vereador">Vice-presidente</p>
+            <p class="mandato-vereador">Mandato: 2025 &ndash; 2028</p>
+          </article>
+
+          <article class="card card-vereador">
+            <div class="foto-moldura">
+              <img src="img/marco.png" alt="Foto do vereador Marco Antônio" class="avatar-img">
+            </div>
+            <h3>Marco Antônio</h3>
+            <p class="cargo-vereador">Primeiro Secretário</p>
+            <p class="mandato-vereador">Mandato: 2025 &ndash; 2028</p>
+          </article>
+
+          <article class="card card-vereador">
+            <div class="foto-moldura">
+              <img src="img/antonio.jpg" alt="Foto da vereadora Talita da Luz" class="avatar-img">
+            </div>
+            <h3>Talita da Luz</h3>
+            <p class="cargo-vereador">Vereadora</p>
+            <p class="mandato-vereador">Mandato: 2025 &ndash; 2028</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="sessoes" class="secao container" aria-labelledby="titulo-sessoes">
+        <div class="secao-cabecalho">
+          <h2 id="titulo-sessoes">Calendário de sessões</h2>
+          <p class="secao-subtitulo">Confira o cronograma de sessões públicas e acompanhe as deliberações em plenário.</p>
+        </div>
+
+        <div class="tabela-wrapper" role="region" aria-label="Tabela de sessões parlamentares, com rolagem horizontal em telas pequenas" tabindex="0">
+          <table>
+            <caption>Próximas sessões da Câmara de Buriti Grande</caption>
+            <thead>
+              <tr>
+                <th scope="col">Data</th>
+                <th scope="col">Horário</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Pauta Principal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>28/09/2026</td>
+                <td>09h00</td>
+                <td><span class="tag-sessao ordinaria">Ordinária</span></td>
+                <td>Votação do projeto de lei da coleta seletiva e reciclagem</td>
+              </tr>
+              <tr>
+                <td>05/10/2026</td>
+                <td>09h00</td>
+                <td><span class="tag-sessao ordinaria">Ordinária</span></td>
+                <td>Debate das emendas parlamentares para reforma da praça central</td>
+              </tr>
+              <tr>
+                <td>12/10/2026</td>
+                <td>14h00</td>
+                <td><span class="tag-sessao solene">Solene</span></td>
+                <td>Entrega solene de títulos de cidadão honorário de Buriti Grande</td>
+              </tr>
+              <tr>
+                <td>19/10/2026</td>
+                <td>09h00</td>
+                <td><span class="tag-sessao ordinaria">Ordinária</span></td>
+                <td>Apreciação de pareceres e requerimentos das comissões temáticas</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="contato" class="secao container" aria-labelledby="titulo-contato">
+        <div class="secao-cabecalho">
+          <h2 id="titulo-contato">Fale com a Câmara</h2>
+          <p class="secao-subtitulo">Envie sua dúvida, sugestão ou pedido de informação à Ouvidoria da Câmara.</p>
+        </div>
+
+        <form action="#" method="post" class="formulario">
+          <fieldset class="formulario-grupo">
+            <legend class="sr-only">Formulário de Ouvidoria e Atendimento ao Cidadão</legend>
+
+            <div class="campo-grupo">
+              <label for="nome">Nome completo:</label>
+              <input type="text" id="nome" name="nome" autocomplete="name" placeholder="Ex.: Maria de Sousa" required>
+            </div>
+
+            <div class="campo-grupo">
+              <label for="email">E-mail para contato:</label>
+              <input type="email" id="email" name="email" autocomplete="email" placeholder="exemplo@email.com" required>
+            </div>
+
+            <div class="campo-grupo">
+              <label for="assunto">Assunto da mensagem:</label>
+              <select id="assunto" name="assunto">
+                <option value="duvida">Dúvida sobre projetos de lei</option>
+                <option value="sugestao">Sugestão de melhoria para o município</option>
+                <option value="ouvidoria">Elogio ou reclamação (Ouvidoria)</option>
+                <option value="solicitacao">Acesso à informação (LAI)</option>
+              </select>
+            </div>
+
+            <div class="campo-grupo">
+              <label for="mensagem">Mensagem:</label>
+              <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva detalhadamente sua mensagem aqui..." required></textarea>
+            </div>
+
+            <button type="submit" class="botao-formulario">Enviar mensagem</button>
+          </fieldset>
+        </form>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <div class="container rodape-conteudo">
+        <div class="rodape-coluna">
+          <p class="rodape-titulo">Câmara Municipal de Buriti Grande</p>
+          <address>
+            Praça dos Três Poderes, nº 100 &ndash; Centro<br>
+            CEP: 64000-000 &ndash; Buriti Grande, PI<br>
+            Atendimento: Segunda a Sexta, das 08h às 14h
+          </address>
+        </div>
+
+        <div class="rodape-coluna rodape-links">
+          <p class="rodape-titulo">Navegação Rápida</p>
+          <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#noticias">Notícias</a></li>
+            <li><a href="#vereadores">Vereadores</a></li>
+            <li><a href="#sessoes">Sessões Plenárias</a></li>
+            <li><a href="#contato">Fale com a Câmara</a></li>
+          </ul>
+        </div>
+
+        <div class="rodape-coluna rodape-topo-link">
+          <a class="botao-topo" href="#inicio">Voltar ao topo &uarr;</a>
+        </div>
+      </div>
+
+      <div class="container rodape-base">
+        <p>&copy; 2026 Câmara Municipal de Buriti Grande. Trabalho acadêmico desenvolvido para a disciplina de Programação para a Web I (UFPI).</p>
+      </div>
+    </footer>
+  </body>
+</html>

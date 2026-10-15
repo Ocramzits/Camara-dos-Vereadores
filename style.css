@@ -1,0 +1,273 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  line-height: 1.5;
+  color: #222;
+  background-color: #f8f9fa;
+}
+
+:focus-visible {
+  outline: 3px solid #ffd54f;
+  outline-offset: 2px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: #ff0;
+  padding: 0.5rem;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.topo {
+  background: #0c4b2b;
+  color: #fff;
+}
+.topo-conteudo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.nome {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+.lema {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.busca-campo {
+  display: flex;
+  background: #fff;
+}
+.busca-campo input {
+  border: 1px solid #ccc;
+  padding: 0.4rem;
+}
+.botao-busca {
+  border: 1px solid #ccc;
+  background: #eee;
+  cursor: pointer;
+  padding: 0 0.5rem;
+}
+
+.menu {
+  background: #07351e;
+}
+.menu-lista {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.menu-lista a {
+  display: block;
+  padding: 0.8rem 1rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.hero {
+  background: #0c4b2b;
+  color: #fff;
+  padding: 2rem 0;
+}
+.hero-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.hero-texto {
+  flex: 1;
+}
+.hero h1 {
+  margin: 0 0 1rem;
+  font-size: 1.8rem;
+}
+.hero-acoes {
+  display: flex;
+  gap: 1rem;
+}
+.botao-destaque,
+.botao-secundario {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+.botao-destaque {
+  background: #ffd54f;
+  color: #000;
+}
+.botao-secundario {
+  background: #fff;
+  color: #000;
+}
+.hero-figura {
+  flex: 1;
+  margin: 0;
+}
+
+.secao {
+  padding: 2rem 0;
+}
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+.card {
+  background: #fff;
+  border: 1px solid #ddd;
+}
+
+.card-corpo {
+  padding: 1rem;
+}
+.noticia-data {
+  font-size: 0.85rem;
+  color: #0c4b2b;
+  margin: 0;
+}
+.card-vereador {
+  text-align: center;
+  padding: 1rem;
+}
+.foto-moldura {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 0.5rem;
+}
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cargo-vereador {
+  font-weight: 700;
+  margin: 0.2rem 0;
+}
+
+.tabela-wrapper {
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th,
+td {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+th {
+  background: #0c4b2b;
+  color: #fff;
+}
+
+.formulario-grupo {
+  border: 1px solid #ddd;
+  padding: 1.5rem;
+  background: #fff;
+}
+.campo-grupo {
+  margin-bottom: 1rem;
+}
+.campo-grupo label {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+.campo-grupo input,
+.campo-grupo select,
+.campo-grupo textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+}
+.botao-formulario {
+  padding: 0.6rem 1.2rem;
+  background: #0c4b2b;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.rodape {
+  background: #07351e;
+  color: #fff;
+  padding: 2rem 0 1rem;
+}
+.rodape-conteudo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+.rodape-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.rodape-links a,
+.botao-topo {
+  color: #ffd54f;
+  text-decoration: none;
+}
+.rodape-base {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .topo-conteudo,
+  .hero-container,
+  .menu-lista {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  .hero-acoes {
+    justify-content: center;
+  }
+}
