@@ -62,4 +62,52 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
+  const linksMenu = document.querySelectorAll('.menu-lista a[href^="#"]');
+
+  linksMenu.forEach((link) => {
+    link.addEventListener('click', (evento) => {
+      evento.preventDefault();
+      const idAlvo = link.getAttribute('href');
+      const elementoAlvo = document.querySelector(idAlvo);
+      if (elementoAlvo) {
+        elementoAlvo.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  const linksRodape = document.querySelectorAll('.rodape-links a[href^="#"]');
+
+  linksRodape.forEach((link) => {
+    link.addEventListener('click', (evento) => {
+      evento.preventDefault();
+      const idAlvo = link.getAttribute('href');
+      const elementoAlvo = document.querySelector(idAlvo);
+      if (elementoAlvo) {
+        elementoAlvo.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  const botaoTopo = document.querySelector('.botao-topo');
+
+  if (botaoTopo) {
+    botaoTopo.addEventListener('click', (evento) => {
+      evento.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  const botoesHero = document.querySelectorAll('.hero-acoes a[href^="#"]');
+
+  botoesHero.forEach((botao) => {
+    botao.addEventListener('click', (evento) => {
+      evento.preventDefault();
+      const idAlvo = botao.getAttribute('href');
+      const elementoAlvo = document.querySelector(idAlvo);
+      if (elementoAlvo) {
+        elementoAlvo.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
 });
