@@ -174,4 +174,50 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  const formBusca = document.querySelector('.busca-form');
+  const campoBusca = document.getElementById('campo-busca');
+
+  if (formBusca) {
+    formBusca.addEventListener('submit', (evento) => {
+      evento.preventDefault();
+      const termo = campoBusca.value.trim();
+      if (termo === '') {
+        campoBusca.focus();
+        return;
+      }
+      const secaoNoticias = document.getElementById('noticias');
+      if (secaoNoticias) {
+        secaoNoticias.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
+
+  const formOuvidoria = document.querySelector('.formulario');
+  const campoNome = document.getElementById('nome');
+  const campoEmail = document.getElementById('email');
+  const campoMensagem = document.getElementById('mensagem');
+
+  if (formOuvidoria) {
+    formOuvidoria.addEventListener('submit', (evento) => {
+      evento.preventDefault();
+      const nome = campoNome.value.trim();
+      const email = campoEmail.value.trim();
+      const mensagem = campoMensagem.value.trim();
+      if (nome === '') {
+        campoNome.focus();
+        return;
+      }
+      if (email === '') {
+        campoEmail.focus();
+        return;
+      }
+      if (mensagem === '') {
+        campoMensagem.focus();
+        return;
+      }
+      alert('Mensagem enviada com sucesso! Em breve nossa equipe entrará em contato.');
+      formOuvidoria.reset();
+    });
+  }
+
 });
