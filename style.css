@@ -259,6 +259,39 @@ th {
   font-size: 0.85rem;
 }
 
+#modal-noticia {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+#modal-noticia.modal-aberto {
+  display: flex;
+}
+
+.modal-caixa {
+  background: #fff;
+  padding: 2rem;
+  max-width: 600px;
+  width: 90%;
+  position: relative;
+}
+
+.modal-fechar {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
 @media (max-width: 768px) {
   .topo-conteudo,
   .hero-container,
