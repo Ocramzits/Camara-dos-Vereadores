@@ -353,7 +353,182 @@ body.tema-escuro .noticia-data {
   color: #ffd54f;
 }
 
+.barra-acessibilidade {
+  background: #052414;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+.barra-acessibilidade-conteudo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 1rem;
+  gap: 0.75rem;
+}
+.acessibilidade-grupo {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+.acessibilidade-rotulo {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-right: 0.2rem;
+}
+.btn-acessibilidade {
+  background: #0c4b2b;
+  color: #fff;
+  border: 1px solid #ffd54f;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 3px;
+  min-height: 32px;
+  min-width: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-acessibilidade:hover,
+.btn-acessibilidade:focus-visible {
+  background: #ffd54f;
+  color: #000;
+}
+.barra-sessao-info {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.75rem;
+  color: #d1e7dd;
+  flex-wrap: wrap;
+}
+.info-item {
+  display: inline-block;
+}
+
+body.alto-contraste {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+body.alto-contraste .barra-acessibilidade {
+  background: #000 !important;
+  border-bottom: 2px solid #ffff00 !important;
+  color: #fff !important;
+}
+body.alto-contraste .topo,
+body.alto-contraste .menu,
+body.alto-contraste .hero,
+body.alto-contraste .rodape {
+  background: #000 !important;
+  color: #fff !important;
+  border-bottom: 2px solid #ffff00 !important;
+}
+body.alto-contraste .menu-lista a {
+  color: #ffff00 !important;
+}
+body.alto-contraste .menu-lista a:hover,
+body.alto-contraste .menu-lista a:focus-visible {
+  background: #ffff00 !important;
+  color: #000 !important;
+}
+body.alto-contraste .card,
+body.alto-contraste .formulario-grupo,
+body.alto-contraste .busca-campo,
+body.alto-contraste .modal-caixa {
+  background: #000 !important;
+  color: #fff !important;
+  border: 2px solid #ffff00 !important;
+}
+body.alto-contraste .card-corpo h3,
+body.alto-contraste .card-vereador h3,
+body.alto-contraste .secao-cabecalho h2,
+body.alto-contraste .hero h1,
+body.alto-contraste #modal-titulo {
+  color: #ffff00 !important;
+}
+body.alto-contraste .secao-subtitulo,
+body.alto-contraste .noticia-data,
+body.alto-contraste .mandato-vereador,
+body.alto-contraste .cargo-vereador,
+body.alto-contraste p,
+body.alto-contraste label,
+body.alto-contraste address {
+  color: #fff !important;
+}
+body.alto-contraste a {
+  color: #ffff00 !important;
+}
+body.alto-contraste a:hover,
+body.alto-contraste a:focus-visible {
+  background: #ffff00 !important;
+  color: #000 !important;
+}
+body.alto-contraste .btn-acessibilidade {
+  background: #000 !important;
+  color: #ffff00 !important;
+  border-color: #ffff00 !important;
+}
+body.alto-contraste .btn-acessibilidade:hover,
+body.alto-contraste .btn-acessibilidade:focus-visible,
+body.alto-contraste .btn-acessibilidade[aria-pressed="true"] {
+  background: #ffff00 !important;
+  color: #000 !important;
+}
+body.alto-contraste .botao-busca,
+body.alto-contraste .botao-formulario,
+body.alto-contraste .botao-destaque,
+body.alto-contraste .botao-secundario,
+body.alto-contraste .botao-tema,
+body.alto-contraste #aviso-cookies button {
+  background: #ffff00 !important;
+  color: #000 !important;
+  border: 2px solid #fff !important;
+  font-weight: 700;
+}
+body.alto-contraste table,
+body.alto-contraste th,
+body.alto-contraste td {
+  border: 1px solid #ffff00 !important;
+  color: #fff !important;
+  background: #000 !important;
+}
+body.alto-contraste th {
+  background: #111 !important;
+  color: #ffff00 !important;
+}
+body.alto-contraste .campo-grupo input,
+body.alto-contraste .campo-grupo select,
+body.alto-contraste .campo-grupo textarea,
+body.alto-contraste .busca-campo input {
+  background: #000 !important;
+  color: #fff !important;
+  border: 2px solid #ffff00 !important;
+}
+body.alto-contraste .skip-link {
+  background: #ffff00 !important;
+  color: #000 !important;
+}
+body.alto-contraste .barra-sessao-info {
+  color: #ffff00 !important;
+}
+body.alto-contraste #aviso-cookies {
+  background: #000 !important;
+  border-top: 2px solid #ffff00 !important;
+}
+
 @media (max-width: 768px) {
+  .barra-acessibilidade-conteudo {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  .acessibilidade-grupo,
+  .barra-sessao-info {
+    justify-content: center;
+  }
   .topo-conteudo,
   .hero-container,
   .menu-lista {
@@ -365,3 +540,4 @@ body.tema-escuro .noticia-data {
     justify-content: center;
   }
 }
+

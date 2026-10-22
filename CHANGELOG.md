@@ -35,3 +35,13 @@
 - Persistência da opção selecionada no campo de assunto do formulário da ouvidoria com a chave `assunto_selecionado` a cada evento de change.
 - Salvamento automático do texto digitado na textarea do formulário com a chave `mensagem_rascunho` a cada evento de input, evitando perdas acidentais.
 - Rastreamento da seção visível na janela (notícias ou sessões) com a chave `secao_atual_visivel`, implementado via `IntersectionObserver`.
+
+### Armazenamento com cookies HTTP (Guylherme Santos)
+
+- Implementação de 5 cookies HTTP via JavaScript: `acessibilidade_tamanho_fonte`, `acessibilidade_alto_contraste`, `ultima_data_visita`, `contador_de_visitas` e `id_sessao_anonima`.
+- Persistência e restauração do tamanho de fonte selecionado pelo usuário (`acessibilidade_tamanho_fonte`).
+- Alternância e persistência do modo de alto contraste (`acessibilidade_alto_contraste`).
+- Armazenamento e exibição da data e hora da última visita ao portal (`ultima_data_visita`).
+- Incrementador numérico de retornos ao portal a cada nova navegação (`contador_de_visitas`).
+- Geração de identificador hash anônimo único no primeiro acesso (`id_sessao_anonima`).
+- Adição de barra de ferramentas de acessibilidade e informações de sessão no topo da página.
