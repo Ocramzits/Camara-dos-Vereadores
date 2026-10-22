@@ -263,4 +263,38 @@ document.addEventListener('DOMContentLoaded', () => {
     avisoCookies.classList.add('cookies-oculto');
   });
 
+  sessionStorage.setItem('tempo_inicio_sessao', Date.now().toString());
+
+  campoBusca.addEventListener('input', () => {
+    sessionStorage.setItem('termo_busca', campoBusca.value);
+  });
+
+  const campoAssunto = document.getElementById('assunto');
+
+  if (campoAssunto) {
+    campoAssunto.addEventListener('change', () => {
+      sessionStorage.setItem('assunto_selecionado', campoAssunto.value);
+    });
+  }
+
+  if (campoMensagem) {
+    campoMensagem.addEventListener('input', () => {
+      sessionStorage.setItem('mensagem_rascunho', campoMensagem.value);
+    });
+  }
+
+  const secaoNoticias = document.getElementById('noticias');
+  const secaoSessoes = document.getElementById('sessoes');
+
+  const observadorSecoes = new IntersectionObserver((entradas) => {
+    entradas.forEach((entrada) => {
+      if (entrada.isIntersecting) {
+        sessionStorage.setItem('secao_atual_visivel', entrada.target.id);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  if (secaoNoticias) observadorSecoes.observe(secaoNoticias);
+  if (secaoSessoes) observadorSecoes.observe(secaoSessoes);
+
 });

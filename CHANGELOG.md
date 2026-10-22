@@ -27,3 +27,11 @@
 
 - Implementação de 5 chaves no localStorage: `tema_escuro_ativo`, `nome_ouvidoria`, `email_ouvidoria`, `vereador_favorito` e `alerta_cookies_aceito`.
 - Adição do botão de alternância de tema escuro, do aviso de cookies e da seleção de vereador favorito nos cards.
+
+### Armazenamento com sessionStorage (Domingos de Melo)
+
+- Registro do timestamp de abertura da aba com a chave `tempo_inicio_sessao` via `sessionStorage`, armazenado imediatamente ao carregar a página.
+- Salvamento automático da string digitada no campo de pesquisa superior com a chave `termo_busca` a cada evento de input.
+- Persistência da opção selecionada no campo de assunto do formulário da ouvidoria com a chave `assunto_selecionado` a cada evento de change.
+- Salvamento automático do texto digitado na textarea do formulário com a chave `mensagem_rascunho` a cada evento de input, evitando perdas acidentais.
+- Rastreamento da seção visível na janela (notícias ou sessões) com a chave `secao_atual_visivel`, implementado via `IntersectionObserver`.
