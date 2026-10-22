@@ -31,6 +31,8 @@
             </button>
           </div>
         </form>
+
+        <button type="button" id="botao-tema" class="botao-tema" aria-pressed="false">Tema escuro</button>
       </div>
 
       <nav class="menu" aria-label="Menu principal de navegação">
@@ -125,7 +127,7 @@
         </div>
 
         <div class="grade">
-          <article class="card card-vereador">
+          <article class="card card-vereador" tabindex="0">
             <div class="foto-moldura">
               <img src="img/Guylherme.png" alt="Foto do vereador Guylherme Santos Lima" class="avatar-img">
             </div>
@@ -134,7 +136,7 @@
             <p class="mandato-vereador">Mandato: 2025 &ndash; 2028</p>
           </article>
 
-          <article class="card card-vereador">
+          <article class="card card-vereador" tabindex="0">
             <div class="foto-moldura">
               <img src="img/Domingos.png" alt="Foto do vereador Domingos de Melo" class="avatar-img">
             </div>
@@ -143,7 +145,7 @@
             <p class="mandato-vereador">Mandato: 2025 &ndash; 2028</p>
           </article>
 
-          <article class="card card-vereador">
+          <article class="card card-vereador" tabindex="0">
             <div class="foto-moldura">
               <img src="img/marco.png" alt="Foto do vereador Marco Antônio" class="avatar-img">
             </div>
@@ -152,7 +154,7 @@
             <p class="mandato-vereador">Mandato: 2025 &ndash; 2028</p>
           </article>
 
-          <article class="card card-vereador">
+          <article class="card card-vereador" tabindex="0">
             <div class="foto-moldura">
               <img src="img/antonio.jpg" alt="Foto da vereadora Talita da Luz" class="avatar-img">
             </div>
@@ -289,6 +291,10 @@
         <h2 id="modal-titulo"></h2>
         <p id="modal-texto"></p>
       </div>
+    </div>
+    <div id="aviso-cookies" role="region" aria-label="Aviso de cookies">
+      <p>Este portal utiliza armazenamento local para guardar suas preferências de navegação.</p>
+      <button type="button" id="botao-aceitar-cookies">Aceitar</button>
     </div>
     <script src="script.js"></script>
   </body>

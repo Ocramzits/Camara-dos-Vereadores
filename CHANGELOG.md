@@ -22,3 +22,8 @@
 - Interceptação do evento de submit do formulário da ouvidoria com validação de nome, e-mail e mensagem antes do envio.
 
 ## Entrega parcial 2
+
+### Armazenamento com localStorage (Marco Antônio)
+
+- Implementação de 5 chaves no localStorage: `tema_escuro_ativo`, `nome_ouvidoria`, `email_ouvidoria`, `vereador_favorito` e `alerta_cookies_aceito`.
+- Adição do botão de alternância de tema escuro, do aviso de cookies e da seleção de vereador favorito nos cards.

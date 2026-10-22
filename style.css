@@ -292,6 +292,67 @@ th {
   line-height: 1;
 }
 
+.botao-tema {
+  padding: 0.5rem 1rem;
+  background: #ffd54f;
+  color: #000;
+  border: none;
+  cursor: pointer;
+}
+
+.card-vereador {
+  cursor: pointer;
+}
+.card-vereador.vereador-favorito {
+  border: 2px solid #ffd54f;
+}
+
+#aviso-cookies {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: #07351e;
+  color: #fff;
+  z-index: 900;
+}
+#aviso-cookies p {
+  margin: 0;
+}
+#aviso-cookies button {
+  padding: 0.5rem 1rem;
+  background: #ffd54f;
+  color: #000;
+  border: none;
+  cursor: pointer;
+}
+#aviso-cookies.cookies-oculto {
+  display: none;
+}
+
+body.tema-escuro {
+  background-color: #121212;
+  color: #eee;
+}
+body.tema-escuro .card,
+body.tema-escuro .formulario-grupo,
+body.tema-escuro .modal-caixa {
+  background: #1e1e1e;
+  border-color: #444;
+  color: #eee;
+}
+body.tema-escuro td {
+  border-color: #444;
+}
+body.tema-escuro .noticia-data {
+  color: #ffd54f;
+}
+
 @media (max-width: 768px) {
   .topo-conteudo,
   .hero-container,

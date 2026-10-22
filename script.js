@@ -220,4 +220,47 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const botaoTema = document.getElementById('botao-tema');
+
+  botaoTema.addEventListener('click', () => {
+    const ativo = document.body.classList.toggle('tema-escuro');
+    botaoTema.setAttribute('aria-pressed', ativo);
+    localStorage.setItem('tema_escuro_ativo', ativo);
+  });
+
+  campoNome.addEventListener('input', () => {
+    localStorage.setItem('nome_ouvidoria', campoNome.value);
+  });
+
+  campoEmail.addEventListener('input', () => {
+    localStorage.setItem('email_ouvidoria', campoEmail.value);
+  });
+
+  const cardsVereadores = document.querySelectorAll('.card-vereador');
+
+  function favoritarVereador(indice) {
+    cardsVereadores.forEach((card) => card.classList.remove('vereador-favorito'));
+    cardsVereadores[indice].classList.add('vereador-favorito');
+    localStorage.setItem('vereador_favorito', vereadores[indice].nome);
+  }
+
+  cardsVereadores.forEach((card, indice) => {
+    card.addEventListener('click', () => {
+      favoritarVereador(indice);
+    });
+    card.addEventListener('keydown', (evento) => {
+      if (evento.key === 'Enter') {
+        favoritarVereador(indice);
+      }
+    });
+  });
+
+  const avisoCookies = document.getElementById('aviso-cookies');
+  const botaoAceitarCookies = document.getElementById('botao-aceitar-cookies');
+
+  botaoAceitarCookies.addEventListener('click', () => {
+    localStorage.setItem('alerta_cookies_aceito', 'true');
+    avisoCookies.classList.add('cookies-oculto');
+  });
+
 });
