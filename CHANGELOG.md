@@ -54,3 +54,12 @@
 - Preenchimento automático dos campos de nome (`nome_ouvidoria`) e e-mail (`email_ouvidoria`) com os valores salvos no localStorage.
 - Restauração visual do vereador selecionado como favorito (`vereador_favorito`) na grade parlamentar.
 - Ocultação automática do alerta de cookies (`alerta_cookies_aceito`) quando a aceitação prévia for identificada no localStorage.
+
+### Integração do sessionStorage e cookies com a interface (Domingos de Melo)
+
+- Implementação da função `restaurarSessionStorage()` que lê as chaves do `sessionStorage` ao carregar a página e aplica os valores nos campos da interface.
+- Restauração do rascunho de mensagem pendente (`mensagem_rascunho`) no campo de textarea da ouvidoria, evitando que o usuário perca o que estava digitando na mesma sessão.
+- Restauração do último termo digitado na barra de pesquisa (`termo_busca`) no campo de busca superior.
+- Restauração da opção de assunto selecionada anteriormente (`assunto_selecionado`) no select do formulário da ouvidoria.
+- Reposicionamento da declaração de `campoAssunto` para antes das funções de restauração, garantindo a disponibilidade da referência ao DOM no momento da leitura do sessionStorage.
+- Os cookies de tamanho de fonte (`acessibilidade_tamanho_fonte`) e alto contraste (`acessibilidade_alto_contraste`) já aplicados via `aplicarTamanhoFonte()` e `aplicarAltoContraste()` mantêm o estado de acessibilidade entre sessões.

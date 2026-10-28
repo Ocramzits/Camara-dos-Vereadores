@@ -402,15 +402,37 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  const campoAssunto = document.getElementById('assunto');
+
   restaurarLocalStorage();
+
+  function restaurarSessionStorage() {
+    try {
+      const rascunhoMensagem = sessionStorage.getItem('mensagem_rascunho');
+      if (rascunhoMensagem !== null && campoMensagem) {
+        campoMensagem.value = rascunhoMensagem;
+      }
+
+      const termoBuscaSalvo = sessionStorage.getItem('termo_busca');
+      if (termoBuscaSalvo !== null && campoBusca) {
+        campoBusca.value = termoBuscaSalvo;
+      }
+
+      const assuntoSalvo = sessionStorage.getItem('assunto_selecionado');
+      if (assuntoSalvo !== null && campoAssunto) {
+        campoAssunto.value = assuntoSalvo;
+      }
+    } catch (e) {
+    }
+  }
+
+  restaurarSessionStorage();
 
   sessionStorage.setItem('tempo_inicio_sessao', Date.now().toString());
 
   campoBusca.addEventListener('input', () => {
     sessionStorage.setItem('termo_busca', campoBusca.value);
   });
-
-  const campoAssunto = document.getElementById('assunto');
 
   if (campoAssunto) {
     campoAssunto.addEventListener('change', () => {
