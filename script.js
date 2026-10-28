@@ -359,6 +359,51 @@ document.addEventListener('DOMContentLoaded', () => {
     avisoCookies.classList.add('cookies-oculto');
   });
 
+  function restaurarLocalStorage() {
+    try {
+      const temaEscuroSalvo = localStorage.getItem('tema_escuro_ativo');
+      if (temaEscuroSalvo === 'true') {
+        document.body.classList.add('tema-escuro');
+        if (botaoTema) {
+          botaoTema.setAttribute('aria-pressed', 'true');
+        }
+      } else if (temaEscuroSalvo === 'false') {
+        document.body.classList.remove('tema-escuro');
+        if (botaoTema) {
+          botaoTema.setAttribute('aria-pressed', 'false');
+        }
+      }
+
+      const nomeSalvo = localStorage.getItem('nome_ouvidoria');
+      if (nomeSalvo !== null && campoNome) {
+        campoNome.value = nomeSalvo;
+      }
+
+      const emailSalvo = localStorage.getItem('email_ouvidoria');
+      if (emailSalvo !== null && campoEmail) {
+        campoEmail.value = emailSalvo;
+      }
+
+      const vereadorFavoritoSalvo = localStorage.getItem('vereador_favorito');
+      if (vereadorFavoritoSalvo) {
+        cardsVereadores.forEach((card, indice) => {
+          if ((vereadores[indice] && vereadores[indice].nome === vereadorFavoritoSalvo) ||
+              card.querySelector('.nome-vereador')?.textContent.trim() === vereadorFavoritoSalvo) {
+            card.classList.add('vereador-favorito');
+          }
+        });
+      }
+
+      const alertaCookiesSalvo = localStorage.getItem('alerta_cookies_aceito');
+      if (alertaCookiesSalvo === 'true' && avisoCookies) {
+        avisoCookies.classList.add('cookies-oculto');
+      }
+    } catch (e) {
+    }
+  }
+
+  restaurarLocalStorage();
+
   sessionStorage.setItem('tempo_inicio_sessao', Date.now().toString());
 
   campoBusca.addEventListener('input', () => {

@@ -45,3 +45,12 @@
 - Incrementador numérico de retornos ao portal a cada nova navegação (`contador_de_visitas`).
 - Geração de identificador hash anônimo único no primeiro acesso (`id_sessao_anonima`).
 - Adição de barra de ferramentas de acessibilidade e informações de sessão no topo da página.
+
+## Entrega final
+
+### Integração do localStorage na interface (Marco Antônio)
+
+- Leitura e restauração do tema escuro (`tema_escuro_ativo`) e atualização do atributo `aria-pressed` no botão durante o carregamento da página.
+- Preenchimento automático dos campos de nome (`nome_ouvidoria`) e e-mail (`email_ouvidoria`) com os valores salvos no localStorage.
+- Restauração visual do vereador selecionado como favorito (`vereador_favorito`) na grade parlamentar.
+- Ocultação automática do alerta de cookies (`alerta_cookies_aceito`) quando a aceitação prévia for identificada no localStorage.
