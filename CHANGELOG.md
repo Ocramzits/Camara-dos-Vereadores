@@ -63,3 +63,12 @@
 - Restauração da opção de assunto selecionada anteriormente (`assunto_selecionado`) no select do formulário da ouvidoria.
 - Reposicionamento da declaração de `campoAssunto` para antes das funções de restauração, garantindo a disponibilidade da referência ao DOM no momento da leitura do sessionStorage.
 - Os cookies de tamanho de fonte (`acessibilidade_tamanho_fonte`) e alto contraste (`acessibilidade_alto_contraste`) já aplicados via `aplicarTamanhoFonte()` e `aplicarAltoContraste()` mantêm o estado de acessibilidade entre sessões.
+
+### Refatoração e limpeza de código (Guylherme Santos)
+
+- Unificação de todos os ouvintes de rolagem suave (`linksMenu`, `linksRodape`, `botoesHero`) em uma função centralizada para links internos da página.
+- Otimização do controle de níveis de dimensionamento de fonte por meio de ajuste progressivo de índices na escala.
+- Simplificação da alternância do modo de alto contraste no DOM e cookie com método booleano direto.
+- Generalização da observação de seções via `IntersectionObserver` abrangendo todas as seções mapeadas da interface.
+- Limpeza e polimento do código JavaScript, removendo redundâncias, verificando a ausência de logs residuais de depuração e mantendo o código estritamente limpo e sem comentários.
+

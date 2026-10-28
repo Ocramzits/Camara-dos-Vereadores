@@ -64,19 +64,11 @@ function obterTamanhoFonteAtual() {
 
 function aplicarAltoContraste(ativo) {
   const btnContraste = document.getElementById('btn-alto-contraste');
-  if (ativo) {
-    document.body.classList.add('alto-contraste');
-    if (btnContraste) {
-      btnContraste.setAttribute('aria-pressed', 'true');
-    }
-    setCookie('acessibilidade_alto_contraste', 'true');
-  } else {
-    document.body.classList.remove('alto-contraste');
-    if (btnContraste) {
-      btnContraste.setAttribute('aria-pressed', 'false');
-    }
-    setCookie('acessibilidade_alto_contraste', 'false');
+  document.body.classList.toggle('alto-contraste', Boolean(ativo));
+  if (btnContraste) {
+    btnContraste.setAttribute('aria-pressed', String(Boolean(ativo)));
   }
+  setCookie('acessibilidade_alto_contraste', String(Boolean(ativo)));
 }
 
 function formatarDataHora(dataIso) {
@@ -158,53 +150,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
-  const linksMenu = document.querySelectorAll('.menu-lista a[href^="#"]');
+  function rolarParaElemento(seletor) {
+    const elemento = document.querySelector(seletor);
+    if (elemento) {
+      elemento.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 
-  linksMenu.forEach((link) => {
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener('click', (evento) => {
-      evento.preventDefault();
       const idAlvo = link.getAttribute('href');
-      const elementoAlvo = document.querySelector(idAlvo);
-      if (elementoAlvo) {
-        elementoAlvo.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-  });
-
-  const linksRodape = document.querySelectorAll('.rodape-links a[href^="#"]');
-
-  linksRodape.forEach((link) => {
-    link.addEventListener('click', (evento) => {
-      evento.preventDefault();
-      const idAlvo = link.getAttribute('href');
-      const elementoAlvo = document.querySelector(idAlvo);
-      if (elementoAlvo) {
-        elementoAlvo.scrollIntoView({ behavior: 'smooth' });
+      if (idAlvo && idAlvo !== '#') {
+        evento.preventDefault();
+        rolarParaElemento(idAlvo);
       }
     });
   });
 
   const botaoTopo = document.querySelector('.botao-topo');
-
   if (botaoTopo) {
     botaoTopo.addEventListener('click', (evento) => {
       evento.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
-
-  const botoesHero = document.querySelectorAll('.hero-acoes a[href^="#"]');
-
-  botoesHero.forEach((botao) => {
-    botao.addEventListener('click', (evento) => {
-      evento.preventDefault();
-      const idAlvo = botao.getAttribute('href');
-      const elementoAlvo = document.querySelector(idAlvo);
-      if (elementoAlvo) {
-        elementoAlvo.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-  });
 
   const noticias = [
     {
@@ -256,16 +225,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  botaoFechar.addEventListener('click', fecharModal);
+  if (botaoFechar) {
+    botaoFechar.addEventListener('click', fecharModal);
+  }
 
-  modal.addEventListener('click', (evento) => {
-    if (evento.target === modal) {
-      fecharModal();
-    }
-  });
+  if (modal) {
+    modal.addEventListener('click', (evento) => {
+      if (evento.target === modal) {
+        fecharModal();
+      }
+    });
+  }
 
   document.addEventListener('keydown', (evento) => {
-    if (evento.key === 'Escape' && modal.classList.contains('modal-aberto')) {
+    if (evento.key === 'Escape' && modal && modal.classList.contains('modal-aberto')) {
       fecharModal();
     }
   });
@@ -273,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const formBusca = document.querySelector('.busca-form');
   const campoBusca = document.getElementById('campo-busca');
 
-  if (formBusca) {
+  if (formBusca && campoBusca) {
     formBusca.addEventListener('submit', (evento) => {
       evento.preventDefault();
       const termo = campoBusca.value.trim();
@@ -281,10 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
         campoBusca.focus();
         return;
       }
-      const secaoNoticias = document.getElementById('noticias');
-      if (secaoNoticias) {
-        secaoNoticias.scrollIntoView({ behavior: 'smooth' });
-      }
+      rolarParaElemento('#noticias');
     });
   }
 
@@ -292,22 +262,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const campoNome = document.getElementById('nome');
   const campoEmail = document.getElementById('email');
   const campoMensagem = document.getElementById('mensagem');
+  const campoAssunto = document.getElementById('assunto');
 
   if (formOuvidoria) {
     formOuvidoria.addEventListener('submit', (evento) => {
       evento.preventDefault();
-      const nome = campoNome.value.trim();
-      const email = campoEmail.value.trim();
-      const mensagem = campoMensagem.value.trim();
-      if (nome === '') {
+      const nome = campoNome ? campoNome.value.trim() : '';
+      const email = campoEmail ? campoEmail.value.trim() : '';
+      const mensagem = campoMensagem ? campoMensagem.value.trim() : '';
+      if (nome === '' && campoNome) {
         campoNome.focus();
         return;
       }
-      if (email === '') {
+      if (email === '' && campoEmail) {
         campoEmail.focus();
         return;
       }
-      if (mensagem === '') {
+      if (mensagem === '' && campoMensagem) {
         campoMensagem.focus();
         return;
       }
@@ -318,26 +289,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const botaoTema = document.getElementById('botao-tema');
 
-  botaoTema.addEventListener('click', () => {
-    const ativo = document.body.classList.toggle('tema-escuro');
-    botaoTema.setAttribute('aria-pressed', ativo);
-    localStorage.setItem('tema_escuro_ativo', ativo);
-  });
+  if (botaoTema) {
+    botaoTema.addEventListener('click', () => {
+      const ativo = document.body.classList.toggle('tema-escuro');
+      botaoTema.setAttribute('aria-pressed', String(ativo));
+      localStorage.setItem('tema_escuro_ativo', String(ativo));
+    });
+  }
 
-  campoNome.addEventListener('input', () => {
-    localStorage.setItem('nome_ouvidoria', campoNome.value);
-  });
+  if (campoNome) {
+    campoNome.addEventListener('input', () => {
+      localStorage.setItem('nome_ouvidoria', campoNome.value);
+    });
+  }
 
-  campoEmail.addEventListener('input', () => {
-    localStorage.setItem('email_ouvidoria', campoEmail.value);
-  });
+  if (campoEmail) {
+    campoEmail.addEventListener('input', () => {
+      localStorage.setItem('email_ouvidoria', campoEmail.value);
+    });
+  }
 
   const cardsVereadores = document.querySelectorAll('.card-vereador');
 
   function favoritarVereador(indice) {
     cardsVereadores.forEach((card) => card.classList.remove('vereador-favorito'));
-    cardsVereadores[indice].classList.add('vereador-favorito');
-    localStorage.setItem('vereador_favorito', vereadores[indice].nome);
+    if (cardsVereadores[indice]) {
+      cardsVereadores[indice].classList.add('vereador-favorito');
+      localStorage.setItem('vereador_favorito', vereadores[indice].nome);
+    }
   }
 
   cardsVereadores.forEach((card, indice) => {
@@ -354,10 +333,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const avisoCookies = document.getElementById('aviso-cookies');
   const botaoAceitarCookies = document.getElementById('botao-aceitar-cookies');
 
-  botaoAceitarCookies.addEventListener('click', () => {
-    localStorage.setItem('alerta_cookies_aceito', 'true');
-    avisoCookies.classList.add('cookies-oculto');
-  });
+  if (botaoAceitarCookies && avisoCookies) {
+    botaoAceitarCookies.addEventListener('click', () => {
+      localStorage.setItem('alerta_cookies_aceito', 'true');
+      avisoCookies.classList.add('cookies-oculto');
+    });
+  }
 
   function restaurarLocalStorage() {
     try {
@@ -402,8 +383,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  const campoAssunto = document.getElementById('assunto');
-
   restaurarLocalStorage();
 
   function restaurarSessionStorage() {
@@ -430,9 +409,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   sessionStorage.setItem('tempo_inicio_sessao', Date.now().toString());
 
-  campoBusca.addEventListener('input', () => {
-    sessionStorage.setItem('termo_busca', campoBusca.value);
-  });
+  if (campoBusca) {
+    campoBusca.addEventListener('input', () => {
+      sessionStorage.setItem('termo_busca', campoBusca.value);
+    });
+  }
 
   if (campoAssunto) {
     campoAssunto.addEventListener('change', () => {
@@ -446,9 +427,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const secaoNoticias = document.getElementById('noticias');
-  const secaoSessoes = document.getElementById('sessoes');
-
   const observadorSecoes = new IntersectionObserver((entradas) => {
     entradas.forEach((entrada) => {
       if (entrada.isIntersecting) {
@@ -457,40 +435,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.5 });
 
-  if (secaoNoticias) observadorSecoes.observe(secaoNoticias);
-  if (secaoSessoes) observadorSecoes.observe(secaoSessoes);
+  document.querySelectorAll('section[id]').forEach((secao) => observadorSecoes.observe(secao));
 
   const btnAumentar = document.getElementById('btn-aumentar-fonte');
   const btnDiminuir = document.getElementById('btn-diminuir-fonte');
   const btnPadrao = document.getElementById('btn-fonte-padrao');
   const btnContraste = document.getElementById('btn-alto-contraste');
 
+  const niveisFonte = ['pequena', 'padrao', 'grande', 'extra-grande'];
+
+  function ajustarPassoFonte(passo) {
+    const atual = obterTamanhoFonteAtual();
+    const indice = niveisFonte.indexOf(atual);
+    const novoIndice = Math.max(0, Math.min(niveisFonte.length - 1, (indice === -1 ? 1 : indice) + passo));
+    aplicarTamanhoFonte(niveisFonte[novoIndice]);
+  }
+
   if (btnAumentar) {
-    btnAumentar.addEventListener('click', () => {
-      const atual = obterTamanhoFonteAtual();
-      let proximo = atual;
-      if (atual === 'pequena') proximo = 'padrao';
-      else if (atual === 'padrao') proximo = 'grande';
-      else if (atual === 'grande') proximo = 'extra-grande';
-      aplicarTamanhoFonte(proximo);
-    });
+    btnAumentar.addEventListener('click', () => ajustarPassoFonte(1));
   }
 
   if (btnDiminuir) {
-    btnDiminuir.addEventListener('click', () => {
-      const atual = obterTamanhoFonteAtual();
-      let proximo = atual;
-      if (atual === 'extra-grande') proximo = 'grande';
-      else if (atual === 'grande') proximo = 'padrao';
-      else if (atual === 'padrao') proximo = 'pequena';
-      aplicarTamanhoFonte(proximo);
-    });
+    btnDiminuir.addEventListener('click', () => ajustarPassoFonte(-1));
   }
 
   if (btnPadrao) {
-    btnPadrao.addEventListener('click', () => {
-      aplicarTamanhoFonte('padrao');
-    });
+    btnPadrao.addEventListener('click', () => aplicarTamanhoFonte('padrao'));
   }
 
   if (btnContraste) {
@@ -506,10 +476,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const contrasteSalvo = getCookie('acessibilidade_alto_contraste');
-  if (contrasteSalvo === 'true' || contrasteSalvo === 'ativado' || contrasteSalvo === '1') {
-    aplicarAltoContraste(true);
-  } else if (contrasteSalvo === 'false' || contrasteSalvo === 'desativado' || contrasteSalvo === '0') {
-    aplicarAltoContraste(false);
+  if (contrasteSalvo !== null) {
+    aplicarAltoContraste(['true', 'ativado', '1'].includes(contrasteSalvo));
   }
 
   const ultimaDataCookie = getCookie('ultima_data_visita');
