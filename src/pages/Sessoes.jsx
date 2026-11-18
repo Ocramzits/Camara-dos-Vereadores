@@ -1,0 +1,67 @@
+export default function Sessoes() {
+  const sessoes = [
+    {
+      data: '28/09/2026',
+      horario: '09h00',
+      tipo: 'Ordinária',
+      classeTag: 'ordinaria',
+      pauta: 'Votação do projeto de lei da coleta seletiva e reciclagem',
+    },
+    {
+      data: '05/10/2026',
+      horario: '09h00',
+      tipo: 'Ordinária',
+      classeTag: 'ordinaria',
+      pauta: 'Debate das emendas parlamentares para reforma da praça central',
+    },
+    {
+      data: '12/10/2026',
+      horario: '14h00',
+      tipo: 'Solene',
+      classeTag: 'solene',
+      pauta: 'Entrega solene de títulos de cidadão honorário de Buriti Grande',
+    },
+    {
+      data: '19/10/2026',
+      horario: '09h00',
+      tipo: 'Ordinária',
+      classeTag: 'ordinaria',
+      pauta: 'Apreciação de pareceres e requerimentos das comissões temáticas',
+    },
+  ];
+
+  return (
+    <section id="sessoes" className="secao container">
+      <div className="secao-cabecalho">
+        <h2 id="titulo-sessoes">Calendário de sessões</h2>
+        <p className="secao-subtitulo">Confira o cronograma de sessões públicas e acompanhe as deliberações em plenário.</p>
+      </div>
+
+      <div className="tabela-wrapper">
+        <table>
+          <caption>Próximas sessões da Câmara de Buriti Grande</caption>
+          <thead>
+            <tr>
+              <th scope="col">Data</th>
+              <th scope="col">Horário</th>
+              <th scope="col">Tipo</th>
+              <th scope="col">Pauta Principal</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sessoes.map((s) => (
+              <tr key={s.data + s.horario}>
+                <td>{s.data}</td>
+                <td>{s.horario}</td>
+                <td>
+                  <span className={`tag-sessao ${s.classeTag}`}>{s.tipo}</span>
+                </td>
+                <td>{s.pauta}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  );
+}
