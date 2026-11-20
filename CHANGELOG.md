@@ -72,3 +72,13 @@
 - Generalização da observação de seções via `IntersectionObserver` abrangendo todas as seções mapeadas da interface.
 - Limpeza e polimento do código JavaScript, removendo redundâncias, verificando a ausência de logs residuais de depuração e mantendo o código estritamente limpo e sem comentários.
 
+# Trabalho 03 - SPA da Câmara de Vereadores
+
+## Entrega Parcial 1: Estruturação da SPA e Roteamento
+
+### Layout base e componentes estruturais (Guylherme Santos)
+
+- Criação dos componentes reutilizáveis `Navbar`, `Header` e `Footer` com links de navegação client-side via React Router.
+- Implementação do componente `Layout` para compartilhamento consistente da estrutura visual entre as rotas da aplicação.
+- Refatoração do componente raiz `App.jsx` integrando o `Layout` estrutural ao sistema de roteamento SPA.
+
