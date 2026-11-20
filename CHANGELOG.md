@@ -94,4 +94,11 @@
 - Estruturação modular dos estilos em `src/styles/` separando arquivos de base, layout, componentes e acessibilidade.
 - Preservação da identidade visual corporativa do portal legislativo, suporte a temas e responsividade para dispositivos móveis.
 
+### Migração das páginas de sessões, notícias e contato (Domingos de Melo)
+
+- Conversão da seção de Notícias em componente React interativo (`Noticias.jsx`) com renderização de artigos jornalísticos e modal de leitura detalhada com controle de teclado (Escape) e acessibilidade.
+- Conversão da seção de Sessões Plenárias em componente React (`Sessoes.jsx`) com tabela semântica, tags de identificação de pautas e wrapper com suporte à rolagem horizontal responsiva.
+- Conversão da seção de Contato em componente React (`Contato.jsx`) com formulário controlado para ouvidoria, campos com validação e feedback amigável de envio ao cidadão.
+
+
 

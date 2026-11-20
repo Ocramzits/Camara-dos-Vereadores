@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 export default function Sessoes() {
   const sessoes = [
     {
@@ -30,14 +32,65 @@ export default function Sessoes() {
     },
   ];
 
+  const [filtroTipo, setFiltroTipo] = useState('todos');
+
+  const sessoesFiltradas =
+    filtroTipo === 'todos'
+      ? sessoes
+      : sessoes.filter(
+          (s) => s.tipo.toLowerCase() === filtroTipo.toLowerCase()
+        );
+
   return (
-    <section id="sessoes" className="secao container">
+    <section
+      id="sessoes"
+      className="secao container"
+      aria-labelledby="titulo-sessoes"
+    >
       <div className="secao-cabecalho">
         <h2 id="titulo-sessoes">Calendário de sessões</h2>
-        <p className="secao-subtitulo">Confira o cronograma de sessões públicas e acompanhe as deliberações em plenário.</p>
+        <p className="secao-subtitulo">
+          Confira o cronograma de sessões públicas e acompanhe as deliberações
+          em plenário.
+        </p>
       </div>
 
-      <div className="tabela-wrapper">
+      <div
+        style={{
+          marginBottom: '1rem',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.5rem',
+        }}
+      >
+        <label
+          htmlFor="filtro-sessao"
+          style={{ fontWeight: 600, fontSize: '0.9rem' }}
+        >
+          Filtrar por tipo:
+        </label>
+        <select
+          id="filtro-sessao"
+          value={filtroTipo}
+          onChange={(e) => setFiltroTipo(e.target.value)}
+          style={{
+            padding: '0.3rem 0.6rem',
+            border: '1px solid #ccc',
+            borderRadius: '3px',
+          }}
+        >
+          <option value="todos">Todas as sessões</option>
+          <option value="ordinária">Sessões Ordinárias</option>
+          <option value="solene">Sessões Solenes</option>
+        </select>
+      </div>
+
+      <div
+        className="tabela-wrapper"
+        role="region"
+        aria-label="Tabela de sessões parlamentares, com rolagem horizontal em telas pequenas"
+        tabIndex={0}
+      >
         <table>
           <caption>Próximas sessões da Câmara de Buriti Grande</caption>
           <thead>
@@ -49,7 +102,7 @@ export default function Sessoes() {
             </tr>
           </thead>
           <tbody>
-            {sessoes.map((s) => (
+            {sessoesFiltradas.map((s) => (
               <tr key={s.data + s.horario}>
                 <td>{s.data}</td>
                 <td>{s.horario}</td>

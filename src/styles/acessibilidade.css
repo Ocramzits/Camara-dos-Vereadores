@@ -157,7 +157,7 @@ body.alto-contraste .btn-acessibilidade {
 
 body.alto-contraste .btn-acessibilidade:hover,
 body.alto-contraste .btn-acessibilidade:focus-visible,
-body.alto-contraste .btn-acessibilidade[aria-pressed="true"] {
+body.alto-contraste .btn-acessibilidade[aria-pressed='true'] {
   background: #ffff00 !important;
   color: #000 !important;
 }

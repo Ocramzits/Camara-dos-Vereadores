@@ -60,8 +60,8 @@ export default function Inicio() {
               <h3>Atuação Legislativa</h3>
               <p>
                 Elaboração, discussão e votação de projetos de lei, emendas e
-                requerimentos fundamentais para o desenvolvimento
-                socioeconômico de Buriti Grande.
+                requerimentos fundamentais para o desenvolvimento socioeconômico
+                de Buriti Grande.
               </p>
               <Link className="link-noticia" to="/sessoes">
                 Acompanhar sessões &rarr;
