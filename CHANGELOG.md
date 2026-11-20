@@ -88,3 +88,10 @@
 - Conversão da seção Vereadores em componente React (`Vereadores.jsx`) com componente modular de cartão parlamentar (`VereadorCard.jsx`).
 - Suporte à seleção interativa e persistência do vereador favorito no armazenamento local diretamente nos componentes.
 
+### Configuração do framework de estilização (Domingos de Melo)
+
+- Migração e adaptação da arquitetura de estilos CSS para o pipeline de bundling do Vite.
+- Estruturação modular dos estilos em `src/styles/` separando arquivos de base, layout, componentes e acessibilidade.
+- Preservação da identidade visual corporativa do portal legislativo, suporte a temas e responsividade para dispositivos móveis.
+
+

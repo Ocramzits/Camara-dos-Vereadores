@@ -1,0 +1,256 @@
+.secao {
+  padding: 2rem 0;
+}
+
+.secao-cabecalho {
+  margin-bottom: 1.5rem;
+}
+
+.secao-cabecalho h2 {
+  margin: 0;
+  color: #0c4b2b;
+}
+
+.secao-subtitulo {
+  margin: 0.3rem 0 0;
+  color: #555;
+}
+
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #ddd;
+}
+
+.card-corpo {
+  padding: 1rem;
+}
+
+.link-noticia {
+  color: #0c4b2b;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.card-noticia {
+  display: flex;
+  flex-direction: column;
+}
+
+.noticia-figura {
+  margin: 0;
+}
+
+.noticia-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.noticia-data {
+  font-size: 0.85rem;
+  color: #0c4b2b;
+  margin: 0;
+}
+
+.card-vereador {
+  text-align: center;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.card-vereador.vereador-favorito {
+  border: 2px solid #ffd54f;
+}
+
+.foto-moldura {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 0.5rem;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cargo-vereador {
+  font-weight: 700;
+  margin: 0.2rem 0;
+}
+
+.mandato-vereador {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
+
+.tabela-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+caption {
+  text-align: left;
+  padding: 0.5rem 0;
+  font-weight: bold;
+}
+
+th,
+td {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background: #0c4b2b;
+  color: #fff;
+}
+
+tbody tr:nth-child(even) {
+  background: #fdfdfd;
+}
+
+tbody tr:hover {
+  background: #f1f8e9;
+}
+
+.tag-sessao {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.tag-sessao.ordinaria {
+  background: #e8f5e9;
+  color: #1b5e20;
+}
+
+.tag-sessao.solene {
+  background: #fff8e1;
+  color: #b78103;
+}
+
+.formulario-grupo {
+  border: 1px solid #ddd;
+  padding: 1.5rem;
+  background: #fff;
+}
+
+.campo-grupo {
+  margin-bottom: 1rem;
+}
+
+.campo-grupo label {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.campo-grupo input,
+.campo-grupo select,
+.campo-grupo textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.botao-formulario {
+  padding: 0.6rem 1.2rem;
+  background: #0c4b2b;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.alerta-sucesso {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+#modal-noticia {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+#modal-noticia.modal-aberto {
+  display: flex;
+}
+
+.modal-caixa {
+  background: #fff;
+  padding: 2rem;
+  max-width: 600px;
+  width: 90%;
+  position: relative;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.modal-fechar {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+#aviso-cookies {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: #07351e;
+  color: #fff;
+  z-index: 900;
+}
+
+#aviso-cookies p {
+  margin: 0;
+}
+
+#aviso-cookies button {
+  padding: 0.5rem 1rem;
+  background: #ffd54f;
+  color: #000;
+  border: none;
+  cursor: pointer;
+}
+
+#aviso-cookies.cookies-oculto {
+  display: none;
+}
