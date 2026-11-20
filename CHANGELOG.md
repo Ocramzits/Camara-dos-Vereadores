@@ -82,3 +82,9 @@
 - Implementação do componente `Layout` para compartilhamento consistente da estrutura visual entre as rotas da aplicação.
 - Refatoração do componente raiz `App.jsx` integrando o `Layout` estrutural ao sistema de roteamento SPA.
 
+### Migração das páginas de início e vereadores (Guylherme Santos)
+
+- Conversão da seção Início em componente React estruturado (`Inicio.jsx`), contendo a seção hero e a área de apresentação institucional dos pilares da Câmara Municipal.
+- Conversão da seção Vereadores em componente React (`Vereadores.jsx`) com componente modular de cartão parlamentar (`VereadorCard.jsx`).
+- Suporte à seleção interativa e persistência do vereador favorito no armazenamento local diretamente nos componentes.
+
