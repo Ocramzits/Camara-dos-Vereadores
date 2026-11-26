@@ -1,7 +1,92 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar.jsx';
+import {
+  setCookie,
+  getCookie,
+  gerarHashAnonimo,
+  formatarDataHora,
+} from '../utils/cookies.js';
+
+const NIVEIS_FONTE = ['pequena', 'padrao', 'grande', 'extra-grande'];
+const MAPA_FONTE = {
+  pequena: '90%',
+  padrao: '100%',
+  grande: '115%',
+  'extra-grande': '130%',
+};
 
 export default function Header() {
+  const [tamanhoFonte, setTamanhoFonte] = useState('padrao');
+  const [altoContraste, setAltoContraste] = useState(false);
+  const [visitas, setVisitas] = useState('');
+  const [ultimaVisita, setUltimaVisita] = useState('');
+  const [idSessao, setIdSessao] = useState('');
+
+  useEffect(() => {
+    const tamanhoSalvo = getCookie('acessibilidade_tamanho_fonte');
+    const tamanhoInicial =
+      tamanhoSalvo && NIVEIS_FONTE.includes(tamanhoSalvo)
+        ? tamanhoSalvo
+        : 'padrao';
+    setTamanhoFonte(tamanhoInicial);
+    document.documentElement.style.fontSize = MAPA_FONTE[tamanhoInicial];
+
+    const contrasteSalvo = getCookie('acessibilidade_alto_contraste');
+    const contrasteAtivo = ['true', 'ativado', '1'].includes(contrasteSalvo);
+    setAltoContraste(contrasteAtivo);
+    document.body.classList.toggle('alto-contraste', contrasteAtivo);
+
+    const ultimaDataCookie = getCookie('ultima_data_visita');
+    if (ultimaDataCookie) {
+      setUltimaVisita('Última visita: ' + formatarDataHora(ultimaDataCookie));
+    } else {
+      setUltimaVisita('Primeira visita ao portal');
+    }
+    setCookie('ultima_data_visita', new Date().toISOString());
+
+    const contadorCookie = getCookie('contador_de_visitas');
+    let contador = 1;
+    if (contadorCookie) {
+      const parsed = parseInt(contadorCookie, 10);
+      if (!isNaN(parsed) && parsed >= 1) {
+        contador = parsed + 1;
+      }
+    }
+    setCookie('contador_de_visitas', contador.toString());
+    setVisitas('Visitas: ' + contador);
+
+    let sessao = getCookie('id_sessao_anonima');
+    if (!sessao) {
+      sessao = gerarHashAnonimo();
+      setCookie('id_sessao_anonima', sessao);
+    }
+    setIdSessao(sessao);
+  }, []);
+
+  function aplicarFonte(novoTamanho) {
+    setTamanhoFonte(novoTamanho);
+    document.documentElement.style.fontSize = MAPA_FONTE[novoTamanho];
+    setCookie('acessibilidade_tamanho_fonte', novoTamanho);
+  }
+
+  function alterarPassoFonte(passo) {
+    const indice = NIVEIS_FONTE.indexOf(tamanhoFonte);
+    const indiceBase = indice === -1 ? 1 : indice;
+    const novoIndice = Math.max(
+      0,
+      Math.min(NIVEIS_FONTE.length - 1, indiceBase + passo)
+    );
+    aplicarFonte(NIVEIS_FONTE[novoIndice]);
+  }
+
+  function alternarAltoContraste() {
+    const novoContraste = !altoContraste;
+    setAltoContraste(novoContraste);
+    document.body.classList.toggle('alto-contraste', novoContraste);
+    setCookie('acessibilidade_alto_contraste', String(novoContraste));
+  }
+
   return (
     <header className="topo">
       <div className="barra-acessibilidade">
@@ -13,6 +98,7 @@ export default function Header() {
               id="btn-diminuir-fonte"
               className="btn-acessibilidade"
               aria-label="Diminuir tamanho da fonte"
+              onClick={() => alterarPassoFonte(-1)}
             >
               A-
             </button>
@@ -21,6 +107,7 @@ export default function Header() {
               id="btn-fonte-padrao"
               className="btn-acessibilidade"
               aria-label="Tamanho de fonte padrão"
+              onClick={() => aplicarFonte('padrao')}
             >
               A
             </button>
@@ -29,6 +116,7 @@ export default function Header() {
               id="btn-aumentar-fonte"
               className="btn-acessibilidade"
               aria-label="Aumentar tamanho da fonte"
+              onClick={() => alterarPassoFonte(1)}
             >
               A+
             </button>
@@ -36,15 +124,28 @@ export default function Header() {
               type="button"
               id="btn-alto-contraste"
               className="btn-acessibilidade"
-              aria-pressed="false"
+              aria-pressed={altoContraste}
+              onClick={alternarAltoContraste}
             >
               Alto Contraste
             </button>
           </div>
           <div className="barra-sessao-info">
-            <span id="info-visitas" className="info-item"></span>
-            <span id="info-ultima-visita" className="info-item"></span>
-            <span id="info-sessao" className="info-item"></span>
+            <span id="info-visitas" className="info-item">
+              {visitas}
+            </span>
+            <span id="info-ultima-visita" className="info-item">
+              {ultimaVisita}
+            </span>
+            {idSessao && (
+              <span
+                id="info-sessao"
+                className="info-item"
+                title={`ID da Sessão: ${idSessao}`}
+              >
+                {`Sessão: ${idSessao.substring(0, 8)}...`}
+              </span>
+            )}
           </div>
         </div>
       </div>

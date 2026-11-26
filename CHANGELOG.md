@@ -107,3 +107,9 @@
 - Criação e estruturação dos arquivos JSON estáticos em `/public/data/` (`noticias.json`, `sessoes.json` e `vereadores.json`) com campos completos para consumo assíncrono.
 - Implementação de módulo de serviço `src/services/api.js` com funções utilitárias assíncronas utilizando a Fetch API (método GET) e tratamento de erros de resposta.
 - Integração da camada de serviço `api.js` aos componentes React das páginas de Notícias, Sessões e Vereadores.
+
+### Integração de cookies de acessibilidade na SPA (Guylherme Santos)
+
+- Implementação do módulo utilitário `src/utils/cookies.js` para leitura, gravação e cálculo de expiração de cookies HTTP no navegador.
+- Integração e persistência dos 5 cookies de acessibilidade e auditoria: `acessibilidade_tamanho_fonte`, `acessibilidade_alto_contraste`, `ultima_data_visita`, `contador_de_visitas` e `id_sessao_anonima`.
+- Vinculação dos controles visuais no componente `Header.jsx` para ajuste progressivo do tamanho de fonte, alternância de alto contraste e exibição das estatísticas da sessão do usuário.
