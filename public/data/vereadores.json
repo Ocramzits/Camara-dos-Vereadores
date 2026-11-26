@@ -1,0 +1,30 @@
+[
+  {
+    "nome": "Guylherme Santos Lima",
+    "cargo": "Presidente da Câmara",
+    "mandato": "2025 – 2028",
+    "foto": "/img/Guylherme.png",
+    "alt": "Foto do vereador Guylherme Santos Lima"
+  },
+  {
+    "nome": "Domingos de Melo",
+    "cargo": "Vice-presidente",
+    "mandato": "2025 – 2028",
+    "foto": "/img/Domingos.png",
+    "alt": "Foto do vereador Domingos de Melo"
+  },
+  {
+    "nome": "Marco Antônio",
+    "cargo": "Primeiro Secretário",
+    "mandato": "2025 – 2028",
+    "foto": "/img/marco.png",
+    "alt": "Foto do vereador Marco Antônio"
+  },
+  {
+    "nome": "Talita da Luz",
+    "cargo": "Vereadora",
+    "mandato": "2025 – 2028",
+    "foto": "/img/antonio.jpg",
+    "alt": "Foto da vereadora Talita da Luz"
+  }
+]

@@ -1,37 +1,28 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import VereadorCard from '../components/VereadorCard.jsx';
 
 export default function Vereadores() {
-  const vereadores = [
-    {
-      nome: 'Guylherme Santos Lima',
-      cargo: 'Presidente da Câmara',
-      mandato: '2025 – 2028',
-      foto: '/img/Guylherme.png',
-      email: 'guylherme.lima@camaraburitigrande.pi.leg.br',
-    },
-    {
-      nome: 'Domingos de Melo',
-      cargo: 'Vice-presidente',
-      mandato: '2025 – 2028',
-      foto: '/img/Domingos.png',
-      email: 'domingos.melo@camaraburitigrande.pi.leg.br',
-    },
-    {
-      nome: 'Marco Antônio',
-      cargo: 'Primeiro Secretário',
-      mandato: '2025 – 2028',
-      foto: '/img/marco.png',
-      email: 'marco.antonio@camaraburitigrande.pi.leg.br',
-    },
-    {
-      nome: 'Talita da Luz',
-      cargo: 'Vereadora',
-      mandato: '2025 – 2028',
-      foto: '/img/antonio.jpg',
-      email: 'talita.luz@camaraburitigrande.pi.leg.br',
-    },
-  ];
+  const [vereadores, setVereadores] = useState([]);
+  const [carregando, setCarregando] = useState(true);
+  const [erro, setErro] = useState(null);
+
+  useEffect(() => {
+    fetch('/data/vereadores.json')
+      .then((resposta) => {
+        if (!resposta.ok) {
+          throw new Error('Falha ao carregar os vereadores');
+        }
+        return resposta.json();
+      })
+      .then((dados) => {
+        setVereadores(dados);
+        setCarregando(false);
+      })
+      .catch((err) => {
+        setErro(err.message);
+        setCarregando(false);
+      });
+  }, []);
 
   const [favorito, setFavorito] = useState(() => {
     try {
@@ -69,16 +60,21 @@ export default function Vereadores() {
         </p>
       </div>
 
-      <div className="grade">
-        {vereadores.map((v) => (
-          <VereadorCard
-            key={v.nome}
-            vereador={v}
-            favorito={favorito === v.nome}
-            onFavoritar={handleFavoritar}
-          />
-        ))}
-      </div>
+      {carregando && <p>Carregando vereadores...</p>}
+      {erro && <p style={{ color: 'red' }}>Erro: {erro}</p>}
+
+      {!carregando && !erro && (
+        <div className="grade">
+          {vereadores.map((v) => (
+            <VereadorCard
+              key={v.nome}
+              vereador={v}
+              favorito={favorito === v.nome}
+              onFavoritar={handleFavoritar}
+            />
+          ))}
+        </div>
+      )}
     </section>
   );
 }

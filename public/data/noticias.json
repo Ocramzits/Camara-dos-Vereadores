@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "titulo": "Câmara aprova orçamento de 2027",
+    "data": "15 de setembro de 2026",
+    "descricao": "Os vereadores aprovaram, em votação plenária, a proposta orçamentária com foco em saúde e infraestrutura.",
+    "imagem": "/img/noticia-orcamento.jpg",
+    "alt": "Plenário durante a votação"
+  },
+  {
+    "id": 2,
+    "titulo": "Audiência pública sobre transporte",
+    "data": "10 de setembro de 2026",
+    "descricao": "A população compareceu para debater melhorias nas linhas de ônibus, novos itinerários e tarifas.",
+    "imagem": "/img/noticia-transporte.jpg",
+    "alt": "Audiência pública com cidadãos"
+  },
+  {
+    "id": 3,
+    "titulo": "Projeto de lei incentiva a reciclagem",
+    "data": "3 de setembro de 2026",
+    "descricao": "Nova proposta prevê ampliação de pontos de coleta seletiva e incentivos fiscais para cooperativas.",
+    "imagem": "/img/noticia-reciclagem.jpg",
+    "alt": "Projeto de preservação ambiental"
+  }
+]

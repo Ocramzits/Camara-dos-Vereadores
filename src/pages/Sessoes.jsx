@@ -1,36 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Sessoes() {
-  const sessoes = [
-    {
-      data: '28/09/2026',
-      horario: '09h00',
-      tipo: 'Ordinária',
-      classeTag: 'ordinaria',
-      pauta: 'Votação do projeto de lei da coleta seletiva e reciclagem',
-    },
-    {
-      data: '05/10/2026',
-      horario: '09h00',
-      tipo: 'Ordinária',
-      classeTag: 'ordinaria',
-      pauta: 'Debate das emendas parlamentares para reforma da praça central',
-    },
-    {
-      data: '12/10/2026',
-      horario: '14h00',
-      tipo: 'Solene',
-      classeTag: 'solene',
-      pauta: 'Entrega solene de títulos de cidadão honorário de Buriti Grande',
-    },
-    {
-      data: '19/10/2026',
-      horario: '09h00',
-      tipo: 'Ordinária',
-      classeTag: 'ordinaria',
-      pauta: 'Apreciação de pareceres e requerimentos das comissões temáticas',
-    },
-  ];
+  const [sessoes, setSessoes] = useState([]);
+  const [carregando, setCarregando] = useState(true);
+  const [erro, setErro] = useState(null);
+
+  useEffect(() => {
+    fetch('/data/sessoes.json')
+      .then((resposta) => {
+        if (!resposta.ok) {
+          throw new Error('Falha ao carregar as sessões');
+        }
+        return resposta.json();
+      })
+      .then((dados) => {
+        setSessoes(dados);
+        setCarregando(false);
+      })
+      .catch((err) => {
+        setErro(err.message);
+        setCarregando(false);
+      });
+  }, []);
 
   const [filtroTipo, setFiltroTipo] = useState('todos');
 
@@ -55,66 +46,73 @@ export default function Sessoes() {
         </p>
       </div>
 
-      <div
-        style={{
-          marginBottom: '1rem',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.5rem',
-        }}
-      >
-        <label
-          htmlFor="filtro-sessao"
-          style={{ fontWeight: 600, fontSize: '0.9rem' }}
-        >
-          Filtrar por tipo:
-        </label>
-        <select
-          id="filtro-sessao"
-          value={filtroTipo}
-          onChange={(e) => setFiltroTipo(e.target.value)}
-          style={{
-            padding: '0.3rem 0.6rem',
-            border: '1px solid #ccc',
-            borderRadius: '3px',
-          }}
-        >
-          <option value="todos">Todas as sessões</option>
-          <option value="ordinária">Sessões Ordinárias</option>
-          <option value="solene">Sessões Solenes</option>
-        </select>
-      </div>
+      {carregando && <p>Carregando calendário de sessões...</p>}
+      {erro && <p style={{ color: 'red' }}>Erro: {erro}</p>}
 
-      <div
-        className="tabela-wrapper"
-        role="region"
-        aria-label="Tabela de sessões parlamentares, com rolagem horizontal em telas pequenas"
-        tabIndex={0}
-      >
-        <table>
-          <caption>Próximas sessões da Câmara de Buriti Grande</caption>
-          <thead>
-            <tr>
-              <th scope="col">Data</th>
-              <th scope="col">Horário</th>
-              <th scope="col">Tipo</th>
-              <th scope="col">Pauta Principal</th>
-            </tr>
-          </thead>
-          <tbody>
-            {sessoesFiltradas.map((s) => (
-              <tr key={s.data + s.horario}>
-                <td>{s.data}</td>
-                <td>{s.horario}</td>
-                <td>
-                  <span className={`tag-sessao ${s.classeTag}`}>{s.tipo}</span>
-                </td>
-                <td>{s.pauta}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      {!carregando && !erro && (
+        <>
+          <div
+            style={{
+              marginBottom: '1rem',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+            }}
+          >
+            <label
+              htmlFor="filtro-sessao"
+              style={{ fontWeight: 600, fontSize: '0.9rem' }}
+            >
+              Filtrar por tipo:
+            </label>
+            <select
+              id="filtro-sessao"
+              value={filtroTipo}
+              onChange={(e) => setFiltroTipo(e.target.value)}
+              style={{
+                padding: '0.3rem 0.6rem',
+                border: '1px solid #ccc',
+                borderRadius: '3px',
+              }}
+            >
+              <option value="todos">Todas as sessões</option>
+              <option value="ordinária">Sessões Ordinárias</option>
+              <option value="solene">Sessões Solenes</option>
+            </select>
+          </div>
+
+          <div
+            className="tabela-wrapper"
+            role="region"
+            aria-label="Tabela de sessões parlamentares, com rolagem horizontal em telas pequenas"
+            tabIndex={0}
+          >
+            <table>
+              <caption>Próximas sessões da Câmara de Buriti Grande</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Data</th>
+                  <th scope="col">Horário</th>
+                  <th scope="col">Tipo</th>
+                  <th scope="col">Pauta Principal</th>
+                </tr>
+              </thead>
+              <tbody>
+                {sessoesFiltradas.map((s) => (
+                  <tr key={s.data + s.horario}>
+                    <td>{s.data}</td>
+                    <td>{s.horario}</td>
+                    <td>
+                      <span className={`tag-sessao ${s.classeTag}`}>{s.tipo}</span>
+                    </td>
+                    <td>{s.pauta}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
     </section>
   );
 }
