@@ -1,17 +1,33 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Contato() {
-  const [nome, setNome] = useState('');
-  const [email, setEmail] = useState('');
+  const [nome, setNome] = useState(() => {
+    return localStorage.getItem('nome_ouvidoria') || '';
+  });
+
+  const [email, setEmail] = useState(() => {
+    return localStorage.getItem('email_ouvidoria') || '';
+  });
+
   const [assunto, setAssunto] = useState('duvida');
   const [mensagem, setMensagem] = useState('');
   const [enviado, setEnviado] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem('nome_ouvidoria', nome);
+  }, [nome]);
+
+  useEffect(() => {
+    localStorage.setItem('email_ouvidoria', email);
+  }, [email]);
 
   function handleSubmit(evento) {
     evento.preventDefault();
     if (!nome.trim() || !email.trim() || !mensagem.trim()) {
       return;
     }
+    localStorage.removeItem('nome_ouvidoria');
+    localStorage.removeItem('email_ouvidoria');
     setEnviado(true);
     setNome('');
     setEmail('');

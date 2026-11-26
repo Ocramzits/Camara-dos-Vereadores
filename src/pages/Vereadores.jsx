@@ -5,6 +5,13 @@ export default function Vereadores() {
   const [vereadores, setVereadores] = useState([]);
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState(null);
+  const [favorito, setFavorito] = useState(() => {
+    try {
+      return localStorage.getItem('vereador_favorito') || '';
+    } catch {
+      return '';
+    }
+  });
 
   useEffect(() => {
     fetch('/data/vereadores.json')
@@ -23,14 +30,6 @@ export default function Vereadores() {
         setCarregando(false);
       });
   }, []);
-
-  const [favorito, setFavorito] = useState(() => {
-    try {
-      return localStorage.getItem('vereador_favorito') || '';
-    } catch {
-      return '';
-    }
-  });
 
   function handleFavoritar(nome) {
     const novoFavorito = favorito === nome ? '' : nome;
