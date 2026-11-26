@@ -4,6 +4,7 @@
     "cargo": "Presidente da Câmara",
     "mandato": "2025 – 2028",
     "foto": "/img/Guylherme.png",
+    "email": "guylherme.lima@camaraburitigrande.pi.leg.br",
     "alt": "Foto do vereador Guylherme Santos Lima"
   },
   {
@@ -11,6 +12,7 @@
     "cargo": "Vice-presidente",
     "mandato": "2025 – 2028",
     "foto": "/img/Domingos.png",
+    "email": "domingos.melo@camaraburitigrande.pi.leg.br",
     "alt": "Foto do vereador Domingos de Melo"
   },
   {
@@ -18,6 +20,7 @@
     "cargo": "Primeiro Secretário",
     "mandato": "2025 – 2028",
     "foto": "/img/marco.png",
+    "email": "marco.antonio@camaraburitigrande.pi.leg.br",
     "alt": "Foto do vereador Marco Antônio"
   },
   {
@@ -25,6 +28,7 @@
     "cargo": "Vereadora",
     "mandato": "2025 – 2028",
     "foto": "/img/antonio.jpg",
+    "email": "talita.luz@camaraburitigrande.pi.leg.br",
     "alt": "Foto da vereadora Talita da Luz"
   }
 ]

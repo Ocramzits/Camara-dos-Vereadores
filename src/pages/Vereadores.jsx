@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import VereadorCard from '../components/VereadorCard.jsx';
+import { buscarVereadores } from '../services/api.js';
 
 export default function Vereadores() {
   const [vereadores, setVereadores] = useState([]);
@@ -14,13 +15,7 @@ export default function Vereadores() {
   });
 
   useEffect(() => {
-    fetch('/data/vereadores.json')
-      .then((resposta) => {
-        if (!resposta.ok) {
-          throw new Error('Falha ao carregar os vereadores');
-        }
-        return resposta.json();
-      })
+    buscarVereadores()
       .then((dados) => {
         setVereadores(dados);
         setCarregando(false);

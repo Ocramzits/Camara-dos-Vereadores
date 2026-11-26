@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { buscarNoticias } from '../services/api.js';
 
 export default function Noticias() {
   const [noticias, setNoticias] = useState([]);
@@ -6,13 +7,7 @@ export default function Noticias() {
   const [erro, setErro] = useState(null);
 
   useEffect(() => {
-    fetch('/data/noticias.json')
-      .then((resposta) => {
-        if (!resposta.ok) {
-          throw new Error('Falha ao carregar as notícias');
-        }
-        return resposta.json();
-      })
+    buscarNoticias()
       .then((dados) => {
         setNoticias(dados);
         setCarregando(false);

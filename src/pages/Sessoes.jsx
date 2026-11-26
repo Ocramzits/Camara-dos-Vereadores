@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { buscarSessoes } from '../services/api.js';
 
 export default function Sessoes() {
   const [sessoes, setSessoes] = useState([]);
@@ -6,13 +7,7 @@ export default function Sessoes() {
   const [erro, setErro] = useState(null);
 
   useEffect(() => {
-    fetch('/data/sessoes.json')
-      .then((resposta) => {
-        if (!resposta.ok) {
-          throw new Error('Falha ao carregar as sessões');
-        }
-        return resposta.json();
-      })
+    buscarSessoes()
       .then((dados) => {
         setSessoes(dados);
         setCarregando(false);

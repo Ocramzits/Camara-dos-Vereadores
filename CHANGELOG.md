@@ -100,5 +100,10 @@
 - Conversão da seção de Sessões Plenárias em componente React (`Sessoes.jsx`) com tabela semântica, tags de identificação de pautas e wrapper com suporte à rolagem horizontal responsiva.
 - Conversão da seção de Contato em componente React (`Contato.jsx`) com formulário controlado para ouvidoria, campos com validação e feedback amigável de envio ao cidadão.
 
+## Entrega Parcial 2: Comunicação Assíncrona e Persistência
 
+### Criação de endpoints JSON estáticos e serviço de fetch (Guylherme Santos)
 
+- Criação e estruturação dos arquivos JSON estáticos em `/public/data/` (`noticias.json`, `sessoes.json` e `vereadores.json`) com campos completos para consumo assíncrono.
+- Implementação de módulo de serviço `src/services/api.js` com funções utilitárias assíncronas utilizando a Fetch API (método GET) e tratamento de erros de resposta.
+- Integração da camada de serviço `api.js` aos componentes React das páginas de Notícias, Sessões e Vereadores.
