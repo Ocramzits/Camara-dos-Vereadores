@@ -48,3 +48,43 @@ Conforme exigido pelo trabalho (mínimo de 4 elementos), foram implementados os 
 - **Calendário de Sessões**: Tabela com pautas e horários das próximas reuniões ordinárias e solenes.
 - **Fale com a Câmara**: Formulário de ouvidoria e contato com campos acessíveis e seleção de assunto.
 - **Rodapé**: Dados institucionais em `<address>`, links de navegação rápida e botão de retorno ao topo.
+
+---
+
+## Instalação e Execução Local
+
+### Pré-requisitos
+
+- [Node.js](https://nodejs.org/) (versão 18 ou superior)
+- npm (incluído com o Node.js)
+
+### Passos
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/Ocramzits/Camara-dos-Vereadores.git
+cd Camara-dos-Vereadores
+```
+
+2. Instale as dependências:
+
+```bash
+npm install
+```
+
+3. Inicie o servidor de desenvolvimento:
+
+```bash
+npm run dev
+```
+
+4. Acesse a aplicação no navegador pelo endereço exibido no terminal (por padrão `http://localhost:5173`).
+
+### Build de Produção
+
+```bash
+npm run build
+```
+
+Os arquivos otimizados serão gerados na pasta `dist/`.

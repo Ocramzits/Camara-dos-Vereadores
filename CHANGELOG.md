@@ -113,3 +113,17 @@
 - Implementação do módulo utilitário `src/utils/cookies.js` para leitura, gravação e cálculo de expiração de cookies HTTP no navegador.
 - Integração e persistência dos 5 cookies de acessibilidade e auditoria: `acessibilidade_tamanho_fonte`, `acessibilidade_alto_contraste`, `ultima_data_visita`, `contador_de_visitas` e `id_sessao_anonima`.
 - Vinculação dos controles visuais no componente `Header.jsx` para ajuste progressivo do tamanho de fonte, alternância de alto contraste e exibição das estatísticas da sessão do usuário.
+
+### Integração do sessionStorage na navegação e formulários (Domingos de Melo)
+
+- Registro do timestamp de abertura da sessão com a chave `tempo_inicio_sessao` via `sessionStorage` ao montar o componente raiz da aplicação.
+- Restauração e salvamento automático do termo digitado no campo de pesquisa do cabeçalho com a chave `termo_busca` a cada alteração de valor.
+- Restauração e persistência da opção selecionada no campo de assunto do formulário da ouvidoria com a chave `assunto_selecionado` a cada mudança de seleção.
+- Restauração e salvamento automático do texto digitado na textarea do formulário de contato com a chave `mensagem_rascunho` a cada alteração, prevenindo perdas acidentais durante a sessão.
+- Rastreamento da seção visível na aplicação com a chave `secao_atual_visivel` atualizada automaticamente a cada navegação entre rotas via `useLocation` do React Router.
+- Limpeza das chaves `assunto_selecionado` e `mensagem_rascunho` do `sessionStorage` após envio bem-sucedido do formulário da ouvidoria.
+
+### Atualização do changelog e instruções do README (Domingos de Melo)
+
+- Registro de todas as entregas da Entrega Parcial 2 no `CHANGELOG.md`.
+- Inclusão no `README.md` das instruções de instalação (`npm install`) e execução local (`npm run dev`).
