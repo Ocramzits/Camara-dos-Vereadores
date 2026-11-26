@@ -9,8 +9,12 @@ export default function Contato() {
     return localStorage.getItem('email_ouvidoria') || '';
   });
 
-  const [assunto, setAssunto] = useState('duvida');
-  const [mensagem, setMensagem] = useState('');
+  const [assunto, setAssunto] = useState(() => {
+    return sessionStorage.getItem('assunto_selecionado') || 'duvida';
+  });
+  const [mensagem, setMensagem] = useState(() => {
+    return sessionStorage.getItem('mensagem_rascunho') || '';
+  });
   const [enviado, setEnviado] = useState(false);
 
   useEffect(() => {
@@ -21,6 +25,14 @@ export default function Contato() {
     localStorage.setItem('email_ouvidoria', email);
   }, [email]);
 
+  useEffect(() => {
+    sessionStorage.setItem('assunto_selecionado', assunto);
+  }, [assunto]);
+
+  useEffect(() => {
+    sessionStorage.setItem('mensagem_rascunho', mensagem);
+  }, [mensagem]);
+
   function handleSubmit(evento) {
     evento.preventDefault();
     if (!nome.trim() || !email.trim() || !mensagem.trim()) {
@@ -28,6 +40,8 @@ export default function Contato() {
     }
     localStorage.removeItem('nome_ouvidoria');
     localStorage.removeItem('email_ouvidoria');
+    sessionStorage.removeItem('assunto_selecionado');
+    sessionStorage.removeItem('mensagem_rascunho');
     setEnviado(true);
     setNome('');
     setEmail('');

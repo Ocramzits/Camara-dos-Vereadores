@@ -22,6 +22,9 @@ export default function Header() {
   const [visitas, setVisitas] = useState('');
   const [ultimaVisita, setUltimaVisita] = useState('');
   const [idSessao, setIdSessao] = useState('');
+  const [termoBusca, setTermoBusca] = useState(() => {
+    return sessionStorage.getItem('termo_busca') || '';
+  });
 
   useEffect(() => {
     const tamanhoSalvo = getCookie('acessibilidade_tamanho_fonte');
@@ -178,6 +181,11 @@ export default function Header() {
               name="q"
               placeholder="Buscar no portal..."
               autoComplete="off"
+              value={termoBusca}
+              onChange={(e) => {
+                setTermoBusca(e.target.value);
+                sessionStorage.setItem('termo_busca', e.target.value);
+              }}
             />
             <button
               type="submit"

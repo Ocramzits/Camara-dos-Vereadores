@@ -12,6 +12,12 @@ export default function App() {
     return localStorage.getItem('alerta_cookies_aceito') === 'true';
   });
 
+  useEffect(() => {
+    if (!sessionStorage.getItem('tempo_inicio_sessao')) {
+      sessionStorage.setItem('tempo_inicio_sessao', Date.now().toString());
+    }
+  }, []);
+
   const aceitarCookies = () => {
     localStorage.setItem('alerta_cookies_aceito', 'true');
     setCookiesAceitos(true);
